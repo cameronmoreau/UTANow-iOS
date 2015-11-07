@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E846D661BEDA29E00BF9B0D /* AppDelegate.swift */; };
+		7E846D691BEDA29E00BF9B0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E846D681BEDA29E00BF9B0D /* ViewController.swift */; };
+		7E846D6C1BEDA29E00BF9B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */; };
+		7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */; };
+		7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		134EFDD36714FF163AECE39A /* Pods-UTANow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.release.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.release.xcconfig"; sourceTree = "<group>"; };
+		6EC90F056C5CF094943D9341 /* Pods-UTANow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.debug.xcconfig"; sourceTree = "<group>"; };
+		7E846D631BEDA29E00BF9B0D /* UTANow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTANow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E846D661BEDA29E00BF9B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7E846D681BEDA29E00BF9B0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7E846D6B1BEDA29E00BF9B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E846D701BEDA29E00BF9B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7E846D721BEDA29E00BF9B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E846D7C1BEDA68900BF9B0D /* UTANow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTANow-Bridging-Header.h"; sourceTree = "<group>"; };
+		DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTANow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E846D601BEDA29E00BF9B0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5751C44601BD6B9B6E0104B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E846D5A1BEDA29E00BF9B0D = {
+			isa = PBXGroup;
+			children = (
+				7E846D651BEDA29E00BF9B0D /* UTANow */,
+				7E846D641BEDA29E00BF9B0D /* Products */,
+				A7565608A677C65B90C1328E /* Pods */,
+				5751C44601BD6B9B6E0104B9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7E846D641BEDA29E00BF9B0D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E846D631BEDA29E00BF9B0D /* UTANow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E846D651BEDA29E00BF9B0D /* UTANow */ = {
+			isa = PBXGroup;
+			children = (
+				7E846D7B1BEDA4A400BF9B0D /* SupportingFiles */,
+				7E846D7A1BEDA49E00BF9B0D /* Resources */,
+				7E846D791BEDA49800BF9B0D /* Controllers */,
+				7E846D781BEDA49000BF9B0D /* Models */,
+			);
+			path = UTANow;
+			sourceTree = "<group>";
+		};
+		7E846D781BEDA49000BF9B0D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7E846D791BEDA49800BF9B0D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7E846D681BEDA29E00BF9B0D /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7E846D7A1BEDA49E00BF9B0D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */,
+				7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */,
+				7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7E846D7B1BEDA4A400BF9B0D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7E846D661BEDA29E00BF9B0D /* AppDelegate.swift */,
+				7E846D721BEDA29E00BF9B0D /* Info.plist */,
+				7E846D7C1BEDA68900BF9B0D /* UTANow-Bridging-Header.h */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A7565608A677C65B90C1328E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6EC90F056C5CF094943D9341 /* Pods-UTANow.debug.xcconfig */,
+				134EFDD36714FF163AECE39A /* Pods-UTANow.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E846D621BEDA29E00BF9B0D /* UTANow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E846D751BEDA29E00BF9B0D /* Build configuration list for PBXNativeTarget "UTANow" */;
+			buildPhases = (
+				386968D76FF46AFBCDE03D12 /* Check Pods Manifest.lock */,
+				7E846D5F1BEDA29E00BF9B0D /* Sources */,
+				7E846D601BEDA29E00BF9B0D /* Frameworks */,
+				7E846D611BEDA29E00BF9B0D /* Resources */,
+				FB35D418F0C181BD53D2D2CE /* Embed Pods Frameworks */,
+				C185BBDA3C57871110BF35BC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UTANow;
+			productName = UTANow;
+			productReference = 7E846D631BEDA29E00BF9B0D /* UTANow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E846D5B1BEDA29E00BF9B0D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Mobi;
+				TargetAttributes = {
+					7E846D621BEDA29E00BF9B0D = {
+						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 7E846D5E1BEDA29E00BF9B0D /* Build configuration list for PBXProject "UTANow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E846D5A1BEDA29E00BF9B0D;
+			productRefGroup = 7E846D641BEDA29E00BF9B0D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E846D621BEDA29E00BF9B0D /* UTANow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E846D611BEDA29E00BF9B0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */,
+				7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */,
+				7E846D6C1BEDA29E00BF9B0D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		386968D76FF46AFBCDE03D12 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C185BBDA3C57871110BF35BC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UTANow/Pods-UTANow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB35D418F0C181BD53D2D2CE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UTANow/Pods-UTANow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E846D5F1BEDA29E00BF9B0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E846D691BEDA29E00BF9B0D /* ViewController.swift in Sources */,
+				7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E846D6B1BEDA29E00BF9B0D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E846D701BEDA29E00BF9B0D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E846D731BEDA29E00BF9B0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7E846D741BEDA29E00BF9B0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E846D761BEDA29E00BF9B0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EC90F056C5CF094943D9341 /* Pods-UTANow.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = UTANow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = idappthat.mobi.UTANow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7E846D771BEDA29E00BF9B0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 134EFDD36714FF163AECE39A /* Pods-UTANow.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = UTANow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = idappthat.mobi.UTANow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E846D5E1BEDA29E00BF9B0D /* Build configuration list for PBXProject "UTANow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E846D731BEDA29E00BF9B0D /* Debug */,
+				7E846D741BEDA29E00BF9B0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E846D751BEDA29E00BF9B0D /* Build configuration list for PBXNativeTarget "UTANow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E846D761BEDA29E00BF9B0D /* Debug */,
+				7E846D771BEDA29E00BF9B0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E846D5B1BEDA29E00BF9B0D /* Project object */;
+}
