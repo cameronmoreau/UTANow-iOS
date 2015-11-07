@@ -11,9 +11,14 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+    @IBOutlet weak var viewSkip: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Make viewSkip clickable
+        viewSkip.userInteractionEnabled = true
+        viewSkip.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "skipLogin"))
         
         if FBSDKAccessToken.currentAccessToken() == nil {
             print("Logged in")
@@ -35,10 +40,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func skipLogin() {
+        performSegueWithIdentifier("eventListSegue", sender: nil)
+    }
+    
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         
         if error == nil {
             print("Successful login")
+            performSegueWithIdentifier("eventListSegue", sender: nil)
         } else {
             print(error.localizedDescription)
         }

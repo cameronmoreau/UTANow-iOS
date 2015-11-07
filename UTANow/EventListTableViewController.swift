@@ -9,6 +9,11 @@
 import UIKit
 
 class EventListTableViewController: UITableViewController {
+    
+    let events = [
+        Event(title: "UT Arlington vs. Houston Baptist", location: "600 S. Center St. Arlington, Texas  ", time: "Friday October 16th, 2015 @ 7:00PM", imageUrl: "http://alcalde.texasexes.org/wp-content/uploads/2011/12/13-gamer2011-12-7_UTA_Basketball_Jorge.Corona549.jpg"),
+        Event(title: "(50% OFF) PIE FIVE PIZZA", location: "501 Spaniolo Dr. Arlington, Texas ", time: "Monday October 19th, 2015 @ 8:00PM", imageUrl: "http://www.roffinis.com/wp-content/uploads/2011/11/menu12.jpg")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,25 +32,23 @@ class EventListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return events.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! EventListTableViewCell
+        
+        //Give event object to the cell
+        cell.setEvent(events[indexPath.row])
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.

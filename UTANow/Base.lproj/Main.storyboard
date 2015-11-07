@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eiQ-jW-bRc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login-->
@@ -16,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bg_login" translatesAutoresizingMaskIntoConstraints="NO" id="YJ2-Tw-ITU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="599"/>
+                                <animations/>
+                            </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1yi-cr-5vk">
                                 <rect key="frame" x="0.0" y="549" width="600" height="50"/>
                                 <subviews>
@@ -38,15 +43,108 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YJ2-Tw-ITU" firstAttribute="bottom" secondItem="1yi-cr-5vk" secondAttribute="bottom" id="14B-5M-sHS"/>
+                            <constraint firstItem="YJ2-Tw-ITU" firstAttribute="top" secondItem="38i-uu-en3" secondAttribute="top" id="2P3-mO-6KD"/>
+                            <constraint firstItem="YJ2-Tw-ITU" firstAttribute="centerY" secondItem="38i-uu-en3" secondAttribute="centerY" id="JOB-CJ-QuL"/>
+                            <constraint firstItem="YJ2-Tw-ITU" firstAttribute="trailing" secondItem="1yi-cr-5vk" secondAttribute="trailing" id="JSt-aO-cBQ"/>
                             <constraint firstAttribute="trailing" secondItem="1yi-cr-5vk" secondAttribute="trailing" id="d4S-dz-enY"/>
                             <constraint firstItem="1yi-cr-5vk" firstAttribute="bottom" secondItem="ZBl-55-VJR" secondAttribute="top" id="ke0-As-UnJ"/>
+                            <constraint firstItem="YJ2-Tw-ITU" firstAttribute="leading" secondItem="1yi-cr-5vk" secondAttribute="leading" id="r0z-3K-pZP"/>
                             <constraint firstItem="1yi-cr-5vk" firstAttribute="leading" secondItem="38i-uu-en3" secondAttribute="leading" id="szC-ND-LLx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="viewSkip" destination="1yi-cr-5vk" id="MDn-cS-4vu"/>
+                        <segue destination="vYZ-IF-H21" kind="showDetail" identifier="eventListSegue" id="6TD-yY-S2U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csJ-89-9jT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="289" y="-441"/>
+        </scene>
+        <!--UTA Now-->
+        <scene sceneID="a5Q-Hc-KwI">
+            <objects>
+                <tableViewController id="w2g-lz-86l" customClass="EventListTableViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="175" sectionHeaderHeight="28" sectionFooterHeight="28" id="eYR-2B-noa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="RL7-db-wXj" customClass="EventListTableViewCell" customModule="UTANow" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="175"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RL7-db-wXj" id="Txy-Uy-q0O">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="175"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fah-0S-4Om">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="175"/>
+                                            <animations/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sKE-jJ-kWM">
+                                            <rect key="frame" x="8" y="38" width="584" height="128"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1001 UTA Blvd Arlington, Texas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWs-1n-LRh">
+                                                    <rect key="frame" x="0.0" y="107" width="584" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobi LEARN Meeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EpK-ga-gaW">
+                                                    <rect key="frame" x="0.0" y="86" width="584" height="27"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friday October 16th, 2015 @ 5:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewL-bc-lav">
+                                                    <rect key="frame" x="0.0" y="69" width="584" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="Fah-0S-4Om" firstAttribute="top" secondItem="Txy-Uy-q0O" secondAttribute="top" id="JcQ-Jb-KZu"/>
+                                        <constraint firstItem="Fah-0S-4Om" firstAttribute="leading" secondItem="Txy-Uy-q0O" secondAttribute="leading" id="Vaw-74-aDS"/>
+                                        <constraint firstItem="Fah-0S-4Om" firstAttribute="centerX" secondItem="sKE-jJ-kWM" secondAttribute="centerX" id="Zxl-Ap-lle"/>
+                                        <constraint firstAttribute="trailing" secondItem="Fah-0S-4Om" secondAttribute="trailing" id="cO6-Lr-1hp"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sKE-jJ-kWM" secondAttribute="bottom" constant="1" id="fdc-mq-qEq"/>
+                                        <constraint firstItem="Fah-0S-4Om" firstAttribute="centerY" secondItem="Txy-Uy-q0O" secondAttribute="centerY" id="hGO-qw-msq"/>
+                                        <constraint firstItem="sKE-jJ-kWM" firstAttribute="leading" secondItem="Txy-Uy-q0O" secondAttribute="leadingMargin" id="ype-5M-w7p"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="labelDate" destination="ewL-bc-lav" id="PcE-QG-8sk"/>
+                                    <outlet property="labelLocation" destination="eWs-1n-LRh" id="FIG-zr-wwK"/>
+                                    <outlet property="labelTitle" destination="EpK-ga-gaW" id="LnR-q4-Emq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w2g-lz-86l" id="k3n-L6-hPq"/>
+                            <outlet property="delegate" destination="w2g-lz-86l" id="zJW-Pz-Pep"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="UTA Now" id="P9e-Rc-VDg">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="uzb-j0-X2u"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="xGs-ne-2YB"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mtM-ee-scJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1675" y="-441"/>
         </scene>
         <!--Map View-->
         <scene sceneID="tne-QT-ifu">
@@ -91,5 +189,27 @@
             </objects>
             <point key="canvasLocation" x="509" y="230"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eLz-d2-nyB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vYZ-IF-H21" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Koj-VJ-9ts">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w2g-lz-86l" kind="relationship" relationship="rootViewController" id="CD4-Mb-KNT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="773-ds-KX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011" y="-441"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="bg_login" width="375" height="667"/>
+    </resources>
 </document>
