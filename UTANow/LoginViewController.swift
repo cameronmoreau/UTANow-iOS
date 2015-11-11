@@ -8,64 +8,78 @@
 
 import UIKit
 import FBSDKCoreKit
-import FBSDKLoginKit
 
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
-    @IBOutlet weak var viewSkip: UIView!
+import Parse
+import ParseFacebookUtilsV4
 
+class LoginViewController: UIViewController {
+    
+    @IBAction func actionLoginWithFacebook(sender: AnyObject) {
+        let permissions = ["public_profile", "email", "user_friends", "user_birthday"]
+        
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: { (user, error) -> Void in
+            if user != nil {
+                self.finishLoggingInWithParse(user!)
+            }
+        })
+    }
+    
+    @IBAction func actionSkip(sender: AnyObject) {
+        performSegueWithIdentifier("eventListSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Make viewSkip clickable
-        viewSkip.userInteractionEnabled = true
-        viewSkip.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "skipLogin"))
-        
         if FBSDKAccessToken.currentAccessToken() == nil {
-            print("Logged in")
-        } else {
             print("Logged out")
+        } else {
+            print("Logged in")
+            FBSDKLoginManager().logOut()
         }
-
-        let fbLoginBtn = FBSDKLoginButton()
-        fbLoginBtn.center = self.view.center
-        //fbLoginBtn.readPermissions = ["public_profile", "email", "user_friends", "user_birthday", "manage_pages", "rsvp_event"]
-        fbLoginBtn.readPermissions = ["public_profile", "email", "user_friends"]
-        fbLoginBtn.delegate = self
-        
-        self.view.addSubview(fbLoginBtn)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func skipLogin() {
-        performSegueWithIdentifier("eventListSegue", sender: nil)
+    //Get basic Facebook Data - use user.isNew to check if new
+    func finishLoggingInWithParse(user: PFUser) {
+        let paramFields = "id, first_name, last_name, picture.type(large), email, gender"
+        
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": paramFields]).startWithCompletionHandler({ (connection, result, error) -> Void in
+            if (error == nil){
+                //TODO: Check for nil values
+                
+                //Get basic profile data
+                let data = result as! NSDictionary
+                user["email"] = data.objectForKey("email") as! String
+                user["firstName"] = data.objectForKey("first_name") as! String
+                user["lastName"] = data.objectForKey("first_name") as! String
+                user["gender"] = data.objectForKey("gender") as! String
+                
+                //Get profile Image
+                let imageData = data.objectForKey("picture")?.objectForKey("data")
+                if let noImage = imageData?.objectForKey("is_silhouette") {
+                    if !(noImage as! Bool) {
+                        user["profilePicture"] = imageData?.objectForKey("url")
+                    }
+                }
+                
+                user.saveInBackgroundWithBlock({(success: Bool, error: NSError?) -> Void in
+                    if error == nil {
+                        self.performSegueWithIdentifier("eventListSegue", sender: self)
+                    }
+                })
+            }
+        })
     }
     
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
-        
-        if error == nil {
-            print("Successful login")
-            performSegueWithIdentifier("eventListSegue", sender: nil)
-        } else {
-            print(error.localizedDescription)
+    func getFBUserData(){
+        if((FBSDKAccessToken.currentAccessToken()) != nil){
+            
         }
     }
     
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        print("User logged out")
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

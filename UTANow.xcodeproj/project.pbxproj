@@ -33,6 +33,7 @@
 		7E846D6C1BEDA29E00BF9B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */; };
 		7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */; };
 		7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */; };
+		7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		7E846D701BEDA29E00BF9B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E846D721BEDA29E00BF9B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E846D7C1BEDA68900BF9B0D /* UTANow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTANow-Bridging-Header.h"; sourceTree = "<group>"; };
+		7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTANow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				7E333BBD1BEE72F100FD07FF /* FBSDKCoreKit.framework in Frameworks */,
 				7E333BC01BEE72F100FD07FF /* FBSDKShareKit.framework in Frameworks */,
 				7E333BC21BEE735700FD07FF /* Parse.framework in Frameworks */,
+				7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				7E333BBE1BEE72F100FD07FF /* FBSDKLoginKit.framework in Frameworks */,
 				7E333BBB1BEE72F100FD07FF /* Bolts.framework in Frameworks */,
 			);
@@ -99,6 +102,7 @@
 		5751C44601BD6B9B6E0104B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */,
 				7E333BDB1BEE74AC00FD07FF /* libsqlite3.tbd */,
 				7E333BD91BEE74A500FD07FF /* libz.tbd */,
 				7E333BD71BEE749A00FD07FF /* SystemConfiguration.framework */,
