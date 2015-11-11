@@ -14,7 +14,7 @@ class EventListTableViewController: UITableViewController {
         Event(title: "UT Arlington vs. Houston Baptist", location: "600 S. Center St. Arlington, Texas  ", time: "Friday October 16th, 2015 @ 7:00PM", imageUrl: "http://alcalde.texasexes.org/wp-content/uploads/2011/12/13-gamer2011-12-7_UTA_Basketball_Jorge.Corona549.jpg"),
         Event(title: "(50% OFF) PIE FIVE PIZZA", location: "501 Spaniolo Dr. Arlington, Texas ", time: "Monday October 19th, 2015 @ 8:00PM", imageUrl: "http://www.roffinis.com/wp-content/uploads/2011/11/menu12.jpg")
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -85,14 +85,19 @@ class EventListTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showEvent" {
+            let tvc = segue.destinationViewController as! EventViewController
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil) //gets rid of text after chevron
+            if tableView.indexPathForSelectedRow?.row != nil {
+                tvc.event = events[tableView.indexPathForSelectedRow!.row]
+            }
+        }
     }
-    */
 
 }

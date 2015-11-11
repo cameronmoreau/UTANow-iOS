@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		7E333BBB1BEE72F100FD07FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB51BEE72F100FD07FF /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		7E333BBC1BEE72F100FD07FF /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */; settings = {ASSET_TAGS = (); }; };
-		7E333BBD1BEE72F100FD07FF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB71BEE72F100FD07FF /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		7E333BBE1BEE72F100FD07FF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB81BEE72F100FD07FF /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		7E333BC01BEE72F100FD07FF /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BBA1BEE72F100FD07FF /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
-		7E333BC21BEE735700FD07FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BC11BEE735700FD07FF /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		490573561BF28A000046DB61 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490573551BF28A000046DB61 /* EventViewController.swift */; };
+		4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */; };
+		7E333BBB1BEE72F100FD07FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB51BEE72F100FD07FF /* Bolts.framework */; };
+		7E333BBC1BEE72F100FD07FF /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */; };
+		7E333BBD1BEE72F100FD07FF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB71BEE72F100FD07FF /* FBSDKCoreKit.framework */; };
+		7E333BBE1BEE72F100FD07FF /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB81BEE72F100FD07FF /* FBSDKLoginKit.framework */; };
+		7E333BC01BEE72F100FD07FF /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BBA1BEE72F100FD07FF /* FBSDKShareKit.framework */; };
+		7E333BC21BEE735700FD07FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BC11BEE735700FD07FF /* Parse.framework */; };
 		7E333BCA1BEE746800FD07FF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BC91BEE746700FD07FF /* AudioToolbox.framework */; };
 		7E333BCC1BEE746E00FD07FF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BCB1BEE746E00FD07FF /* CFNetwork.framework */; };
 		7E333BCE1BEE747500FD07FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BCD1BEE747500FD07FF /* CoreGraphics.framework */; };
@@ -24,10 +25,10 @@
 		7E333BD81BEE749A00FD07FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BD71BEE749A00FD07FF /* SystemConfiguration.framework */; };
 		7E333BDA1BEE74A500FD07FF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BD91BEE74A500FD07FF /* libz.tbd */; };
 		7E333BDC1BEE74AC00FD07FF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BDB1BEE74AC00FD07FF /* libsqlite3.tbd */; };
-		7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BDD1BEE7C8300FD07FF /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		7E333BE51BEE84CC00FD07FF /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE41BEE84CC00FD07FF /* EventListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		7E333BE71BEEABE800FD07FF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE61BEEABE800FD07FF /* Event.swift */; settings = {ASSET_TAGS = (); }; };
-		7E333BE91BEEAD4000FD07FF /* EventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BDD1BEE7C8300FD07FF /* LoginViewController.swift */; };
+		7E333BE51BEE84CC00FD07FF /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE41BEE84CC00FD07FF /* EventListTableViewController.swift */; };
+		7E333BE71BEEABE800FD07FF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE61BEEABE800FD07FF /* Event.swift */; };
+		7E333BE91BEEAD4000FD07FF /* EventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */; };
 		7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E846D661BEDA29E00BF9B0D /* AppDelegate.swift */; };
 		7E846D6C1BEDA29E00BF9B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */; };
 		7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		134EFDD36714FF163AECE39A /* Pods-UTANow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.release.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.release.xcconfig"; sourceTree = "<group>"; };
+		490573551BF28A000046DB61 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		6EC90F056C5CF094943D9341 /* Pods-UTANow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.debug.xcconfig"; sourceTree = "<group>"; };
 		7E333BB51BEE72F100FD07FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				7E333BDD1BEE7C8300FD07FF /* LoginViewController.swift */,
 				7E333BE41BEE84CC00FD07FF /* EventListTableViewController.swift */,
 				7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */,
+				490573551BF28A000046DB61 /* EventViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */,
 				7E333BE51BEE84CC00FD07FF /* EventListTableViewController.swift in Sources */,
 				7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */,
+				490573561BF28A000046DB61 /* EventViewController.swift in Sources */,
 				7E333BE71BEEABE800FD07FF /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
