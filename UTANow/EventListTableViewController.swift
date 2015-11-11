@@ -23,6 +23,9 @@ class EventListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //change nav bar title font
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Woah", size: 35)!]
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +51,10 @@ class EventListTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 185
     }
 
     /*
