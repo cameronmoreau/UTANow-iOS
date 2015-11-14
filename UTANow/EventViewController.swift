@@ -36,9 +36,20 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         //set profile picture image
         //profilePicture.image =
+        profilePicture.image = UIImage(named: "bg_login") //placeholder
         
         //UTA Now logo
-        navigationItem.titleView = UIImageView(image: UIImage(named: "")) //UTA Now logo
+        let navBarTitleLabel = UILabel(frame: CGRectMake(0, 13, 32, 32))
+        navBarTitleLabel.text = "UTA"
+        navBarTitleLabel.textAlignment = .Center
+        //navBarTitleLabel.font = UIFont(name: "Woah", size: 35)
+        navBarTitleLabel.font = UIFont.systemFontOfSize(35)
+        navBarTitleLabel.textColor = UIColor.whiteColor()
+        navigationItem.titleView = navBarTitleLabel
+        
+        //This solution isn't good because the title text seems too far up
+        //self.title = "UTA"
+        //navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Woah", size: 35)!]
         
         //for light content status bar
         navigationController?.navigationBar.barStyle = .Black

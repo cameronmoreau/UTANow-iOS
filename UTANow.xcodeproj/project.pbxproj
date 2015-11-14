@@ -26,7 +26,7 @@
 		7E333BDA1BEE74A500FD07FF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BD91BEE74A500FD07FF /* libz.tbd */; };
 		7E333BDC1BEE74AC00FD07FF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BDB1BEE74AC00FD07FF /* libsqlite3.tbd */; };
 		7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BDD1BEE7C8300FD07FF /* LoginViewController.swift */; };
-		7E333BE51BEE84CC00FD07FF /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE41BEE84CC00FD07FF /* EventListTableViewController.swift */; };
+		7E333BE51BEE84CC00FD07FF /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE41BEE84CC00FD07FF /* EventListViewController.swift */; };
 		7E333BE71BEEABE800FD07FF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE61BEEABE800FD07FF /* Event.swift */; };
 		7E333BE91BEEAD4000FD07FF /* EventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */; };
 		7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E846D661BEDA29E00BF9B0D /* AppDelegate.swift */; };
@@ -35,6 +35,20 @@
 		7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */; };
 		7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		494FE0141BF67F7000AEE9FD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				494FE0131BF67F6F00AEE9FD /* Pods_UTANow.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		134EFDD36714FF163AECE39A /* Pods-UTANow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.release.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.release.xcconfig"; sourceTree = "<group>"; };
@@ -57,7 +71,7 @@
 		7E333BD91BEE74A500FD07FF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7E333BDB1BEE74AC00FD07FF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7E333BDD1BEE7C8300FD07FF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7E333BE41BEE84CC00FD07FF /* EventListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListTableViewController.swift; sourceTree = "<group>"; };
+		7E333BE41BEE84CC00FD07FF /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		7E333BE61BEEABE800FD07FF /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListTableViewCell.swift; sourceTree = "<group>"; };
 		7E846D631BEDA29E00BF9B0D /* UTANow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTANow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494FE0121BF67F6F00AEE9FD /* Pods_UTANow.framework in Frameworks */,
 				7E333BDC1BEE74AC00FD07FF /* libsqlite3.tbd in Frameworks */,
 				7E333BDA1BEE74A500FD07FF /* libz.tbd in Frameworks */,
 				7E333BD81BEE749A00FD07FF /* SystemConfiguration.framework in Frameworks */,
@@ -165,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				7E333BDD1BEE7C8300FD07FF /* LoginViewController.swift */,
-				7E333BE41BEE84CC00FD07FF /* EventListTableViewController.swift */,
+				7E333BE41BEE84CC00FD07FF /* EventListViewController.swift */,
 				7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */,
 				490573551BF28A000046DB61 /* EventViewController.swift */,
 			);
@@ -214,6 +229,7 @@
 				7E846D611BEDA29E00BF9B0D /* Resources */,
 				FB35D418F0C181BD53D2D2CE /* Embed Pods Frameworks */,
 				C185BBDA3C57871110BF35BC /* Copy Pods Resources */,
+				494FE0141BF67F7000AEE9FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,7 +346,7 @@
 			files = (
 				7E333BE91BEEAD4000FD07FF /* EventListTableViewCell.swift in Sources */,
 				7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */,
-				7E333BE51BEE84CC00FD07FF /* EventListTableViewController.swift in Sources */,
+				7E333BE51BEE84CC00FD07FF /* EventListViewController.swift in Sources */,
 				7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */,
 				490573561BF28A000046DB61 /* EventViewController.swift in Sources */,
 				7E333BE71BEEABE800FD07FF /* Event.swift in Sources */,
