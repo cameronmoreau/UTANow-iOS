@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		490573561BF28A000046DB61 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490573551BF28A000046DB61 /* EventViewController.swift */; };
-		4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */; };
+		4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7E333BBB1BEE72F100FD07FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB51BEE72F100FD07FF /* Bolts.framework */; };
 		7E333BBC1BEE72F100FD07FF /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */; };
 		7E333BBD1BEE72F100FD07FF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB71BEE72F100FD07FF /* FBSDKCoreKit.framework */; };
@@ -33,7 +33,7 @@
 		7E846D6C1BEDA29E00BF9B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */; };
 		7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */; };
 		7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */; };
-		7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
+		7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
