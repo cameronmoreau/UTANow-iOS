@@ -41,7 +41,9 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
         //UTA Now logo
         let navBarTitleLabel = UILabel(frame: CGRectMake(0, 13, 32, 32))
         navBarTitleLabel.text = "UTA"
-        navBarTitleLabel.font = UIFont(name: "Woah", size: 35)
+        navBarTitleLabel.textAlignment = .Center
+        //navBarTitleLabel.font = UIFont(name: "Woah", size: 35)
+        navBarTitleLabel.font = UIFont.systemFontOfSize(35)
         navBarTitleLabel.textColor = UIColor.whiteColor()
         navigationItem.titleView = navBarTitleLabel
         
