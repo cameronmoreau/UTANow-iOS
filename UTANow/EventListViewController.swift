@@ -26,6 +26,10 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tabBtn1: UIButton!
+    @IBOutlet weak var tabBtn2: UIButton!
+    @IBOutlet weak var tabBtn3: UIButton!
+    
     var searchBar: UIView!
     var searchButton: UIButton!
     var searchField: UITextField!
@@ -61,6 +65,33 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: - IBActions
+    
+    @IBAction func tabButtonTapped(sender: UIButton) {
+        sender.tintColor = UIColor(red: 245/255.0, green: 128/255.0, blue: 37/255.0, alpha: 1.0)
+        
+        if sender == tabBtn1 {
+            tabBtn2.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            tabBtn3.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            
+            //TODO: implement lightning tab button action
+        }
+        
+        if sender == tabBtn2 {
+            tabBtn1.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            tabBtn3.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            
+            //TODO: implement refresh tab button action
+        }
+        
+        if sender == tabBtn3 {
+            tabBtn1.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            tabBtn2.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            
+            //TODO: implement thumbs up tab button action
+        }
+    }
+    
     //MARK: - Search bar
     
     func createSearchBar() {
@@ -79,13 +110,14 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         searchButton.backgroundColor = UIColor.whiteColor()
         searchButton.layer.cornerRadius = searchButton.frame.size.width/2
         searchButton.layer.borderColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1.0).CGColor
-        searchButton.setTitle("S", forState: .Normal)
+        //TODO: add search bar icon
+        searchButton.setImage(UIImage(named: ""), forState: .Normal)
         searchButton.addTarget(self, action: Selector("searchButtonTapped:"), forControlEvents: .TouchUpInside)
         searchBar.addSubview(searchButton)
         
         let filterBtn = UIButton(type: .System)
         filterBtn.frame = CGRectMake(searchBar.frame.size.width-70, 0, 70, kSearchBarHeight)
-        filterBtn.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        filterBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
         filterBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
         filterBtn.setTitle("Filter", forState: .Normal)
         filterBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
@@ -115,7 +147,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         let dateBtn = UIButton(type: .System)
         dateBtn.frame = CGRectMake(14, kSearchBarHeight+14, (filterMenu.frame.size.width-14*5)/kNumFilterButtons, kFilterButtonHeight) //14 because odd number padding doesn't divide equally
         dateBtn.layer.cornerRadius = 4
-        dateBtn.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        dateBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
         dateBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
         dateBtn.setTitle("Date", forState: .Normal)
         dateBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
@@ -126,7 +158,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         let sportsBtn = UIButton(type: .System)
         sportsBtn.frame = CGRectMake(14+dateBtn.frame.size.width+14, dateBtn.frame.origin.y, dateBtn.frame.size.width, kFilterButtonHeight)
         sportsBtn.layer.cornerRadius = 4
-        sportsBtn.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        sportsBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
         sportsBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
         sportsBtn.setTitle("Sports", forState: .Normal)
         sportsBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
@@ -137,7 +169,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         let distanceBtn = UIButton(type: .System)
         distanceBtn.frame = CGRectMake(14+dateBtn.frame.size.width+14+sportsBtn.frame.size.width+14, dateBtn.frame.origin.y, dateBtn.frame.size.width, kFilterButtonHeight)
         distanceBtn.layer.cornerRadius = 4
-        distanceBtn.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        distanceBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
         distanceBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
         distanceBtn.setTitle("Distance", forState: .Normal)
         distanceBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
@@ -148,7 +180,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         let foodBtn = UIButton(type: .System)
         foodBtn.frame = CGRectMake(14+dateBtn.frame.size.width+14+sportsBtn.frame.size.width+14+distanceBtn.frame.size.width+14, dateBtn.frame.origin.y, dateBtn.frame.size.width, kFilterButtonHeight)
         foodBtn.layer.cornerRadius = 4
-        foodBtn.backgroundColor = UIColor(red: 240/255.0, green: 240/255.0, blue: 240/255.0, alpha: 1.0)
+        foodBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
         foodBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
         foodBtn.setTitle("Food", forState: .Normal)
         foodBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)

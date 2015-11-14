@@ -102,8 +102,8 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EKi-f6-rxe">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EKi-f6-rxe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="481"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -224,9 +224,74 @@
                                     <outlet property="delegate" destination="X2H-RG-K4O" id="fhu-VL-32E"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8a6-FN-5iC">
+                                <rect key="frame" x="0.0" y="481" width="600" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLm-H0-Xiv">
+                                        <rect key="frame" x="400" y="0.0" width="200" height="55"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="F6P-e7-oqY"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.35686274509803922" green="0.36078431372549019" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tabButtonTapped:" destination="X2H-RG-K4O" eventType="touchUpInside" id="V4g-lZ-Hkd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmW-Y4-nm3">
+                                        <rect key="frame" x="200" y="0.0" width="200" height="55"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="cPf-Wm-fNC"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.35686274509999999" green="0.36078431370000003" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tabButtonTapped:" destination="X2H-RG-K4O" eventType="touchUpInside" id="NWc-cv-jcA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeZ-n9-rCu">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="55"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="RRM-1e-QZu"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.96078431372549022" green="0.50196078431372548" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tabButtonTapped:" destination="X2H-RG-K4O" eventType="touchUpInside" id="2eE-xQ-YXc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="nLm-H0-Xiv" firstAttribute="width" secondItem="jeZ-n9-rCu" secondAttribute="width" id="0KJ-Jb-JVH"/>
+                                    <constraint firstAttribute="height" constant="55" id="BtC-N9-8Z9"/>
+                                    <constraint firstItem="jeZ-n9-rCu" firstAttribute="leading" secondItem="8a6-FN-5iC" secondAttribute="leading" id="FAa-10-xn7"/>
+                                    <constraint firstItem="bmW-Y4-nm3" firstAttribute="leading" secondItem="jeZ-n9-rCu" secondAttribute="trailing" id="HE8-NU-Pzx"/>
+                                    <constraint firstItem="nLm-H0-Xiv" firstAttribute="top" secondItem="8a6-FN-5iC" secondAttribute="top" id="MBM-MJ-12A"/>
+                                    <constraint firstAttribute="bottom" secondItem="jeZ-n9-rCu" secondAttribute="bottom" id="ZFx-2i-nbd"/>
+                                    <constraint firstItem="jeZ-n9-rCu" firstAttribute="top" secondItem="8a6-FN-5iC" secondAttribute="top" id="bic-KS-jJN"/>
+                                    <constraint firstAttribute="bottom" secondItem="bmW-Y4-nm3" secondAttribute="bottom" id="j3g-EU-q7w"/>
+                                    <constraint firstItem="bmW-Y4-nm3" firstAttribute="width" secondItem="jeZ-n9-rCu" secondAttribute="width" id="rTi-Vl-7VQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="nLm-H0-Xiv" secondAttribute="bottom" id="sQ5-3t-BB5"/>
+                                    <constraint firstItem="nLm-H0-Xiv" firstAttribute="leading" secondItem="bmW-Y4-nm3" secondAttribute="trailing" id="uGe-7v-HBs"/>
+                                    <constraint firstAttribute="trailing" secondItem="nLm-H0-Xiv" secondAttribute="trailing" id="vR3-FR-Iab"/>
+                                    <constraint firstItem="bmW-Y4-nm3" firstAttribute="top" secondItem="8a6-FN-5iC" secondAttribute="top" id="x0z-Mf-FZX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6sY-br-DpK" firstAttribute="top" secondItem="8a6-FN-5iC" secondAttribute="bottom" id="2mW-s1-lxK"/>
+                            <constraint firstItem="8a6-FN-5iC" firstAttribute="top" secondItem="EKi-f6-rxe" secondAttribute="bottom" id="DuM-r0-sbc"/>
+                            <constraint firstAttribute="trailing" secondItem="EKi-f6-rxe" secondAttribute="trailing" id="OpL-We-IlO"/>
+                            <constraint firstItem="8a6-FN-5iC" firstAttribute="leading" secondItem="xzu-eF-iaI" secondAttribute="leading" id="X4N-wv-43O"/>
+                            <constraint firstItem="8a6-FN-5iC" firstAttribute="top" secondItem="EKi-f6-rxe" secondAttribute="bottom" id="iOh-rd-C86"/>
+                            <constraint firstItem="EKi-f6-rxe" firstAttribute="top" secondItem="Olt-r8-nMV" secondAttribute="bottom" id="j87-Tt-frE"/>
+                            <constraint firstAttribute="trailing" secondItem="8a6-FN-5iC" secondAttribute="trailing" id="llK-41-KmH"/>
+                            <constraint firstItem="EKi-f6-rxe" firstAttribute="leading" secondItem="xzu-eF-iaI" secondAttribute="leading" id="waC-bF-pgV"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="UTA Now" id="xu0-IP-oKs">
@@ -234,6 +299,9 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="tabBtn1" destination="jeZ-n9-rCu" id="mtv-W5-lFc"/>
+                        <outlet property="tabBtn2" destination="bmW-Y4-nm3" id="1Qx-lg-f94"/>
+                        <outlet property="tabBtn3" destination="nLm-H0-Xiv" id="qah-vN-V25"/>
                         <outlet property="tableView" destination="EKi-f6-rxe" id="Bu3-ja-zcq"/>
                     </connections>
                 </viewController>
@@ -505,6 +573,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
