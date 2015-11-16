@@ -13,6 +13,15 @@ import ParseFacebookUtilsV4
 
 class EventListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
+    let kSearchPaddingX: CGFloat = 15
+    let kSearchPaddingY: CGFloat = 20
+    
+    let kSearchBarHeight: CGFloat = 44
+    
+    let kNumFilterButtons: CGFloat = 4
+    
+    let kFilterButtonHeight: CGFloat = 55
+    
     let events = [
         Event(title: "UT Arlington vs. Houston Baptist", location: "600 S. Center St. Arlington, Texas  ", time: "Friday October 16th, 2015 @ 7:00PM", imageUrl: "http://alcalde.texasexes.org/wp-content/uploads/2011/12/13-gamer2011-12-7_UTA_Basketball_Jorge.Corona549.jpg"),
         Event(title: "(50% OFF) PIE FIVE PIZZA", location: "501 Spaniolo Dr. Arlington, Texas ", time: "Monday October 19th, 2015 @ 8:00PM", imageUrl: "http://www.roffinis.com/wp-content/uploads/2011/11/menu12.jpg")
@@ -32,44 +41,321 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var searchBar: UIView!
-    @IBOutlet weak var searchBarContainer: UIView!
-    @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var tabBtn1: UIButton!
+    @IBOutlet weak var tabBtn2: UIButton!
+    @IBOutlet weak var tabBtn3: UIButton!
     
-    @IBOutlet weak var filterMenu: UIView!
+    var searchBar: UIView!
+    var searchButton: UIButton!
+    var searchField: UITextField!
     
-    let kNoResultsLabelTag = 3852929
+    var filterMenu: UIView!
     
-    var searchBarExpanded = true
+    var noResultsLabel: UILabel!
+    
+    var searchBarCreated = false
+    
+    var searchBarExpanded = false
     var filterMenuExpanded = false
     
-    var firstLoad = true
+    //MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //change nav bar title font
+        //TODO: pretty-up the navbar title
         //navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Woah", size: 35)!]
-        
-        searchField.addTarget(self, action:"searchTextChanged:", forControlEvents:.EditingChanged)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        firstLoad = false
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        filterMenu.frame = CGRectMake(filterMenu.frame.origin.x, filterMenu.frame.origin.y, filterMenu.frame.size.width, 0) //contract filterMenu on first load
+        if searchBarCreated == false {
+            createSearchBar()
+        }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - IBActions
+    
+    @IBAction func tabButtonTapped(sender: UIButton) {
+        sender.tintColor = UIColor(red: 245/255.0, green: 128/255.0, blue: 37/255.0, alpha: 1.0)
+        
+        if sender == tabBtn1 {
+            tabBtn2.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            tabBtn3.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            
+            //TODO: implement lightning tab button action
+        }
+        
+        if sender == tabBtn2 {
+            tabBtn1.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            tabBtn3.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            
+            //TODO: implement refresh tab button action
+        }
+        
+        if sender == tabBtn3 {
+            tabBtn1.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            tabBtn2.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
+            
+            //TODO: implement thumbs up tab button action
+        }
+    }
+    
+    //MARK: - Search bar
+    
+    func createSearchBar() {
+        let container = UIView(frame: CGRectMake(kSearchPaddingX, kSearchPaddingY, UIScreen.mainScreen().bounds.size.width-kSearchPaddingX*2, kSearchBarHeight))
+        
+        searchBar = UIView(frame: CGRectMake(0, 0, container.frame.size.width, kSearchBarHeight))
+        searchBar.clipsToBounds = true
+        searchBar.layer.cornerRadius = 4
+        searchBar.backgroundColor = UIColor.whiteColor()
+        searchBar.layer.borderColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1.0).CGColor
+        searchBar.layer.borderWidth = 0.5
+        container.addSubview(searchBar)
+        
+        searchButton = UIButton(type: .System)
+        searchButton.frame = CGRectMake(0, 0, kSearchBarHeight, kSearchBarHeight)
+        searchButton.backgroundColor = UIColor.whiteColor()
+        searchButton.layer.cornerRadius = searchButton.frame.size.width/2
+        searchButton.layer.borderColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1.0).CGColor
+        //TODO: add search bar icon
+        searchButton.setImage(UIImage(named: ""), forState: .Normal)
+        searchButton.addTarget(self, action: Selector("searchButtonTapped:"), forControlEvents: .TouchUpInside)
+        searchBar.addSubview(searchButton)
+        
+        let filterBtn = UIButton(type: .System)
+        filterBtn.frame = CGRectMake(searchBar.frame.size.width-70, 0, 70, kSearchBarHeight)
+        filterBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
+        filterBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        filterBtn.setTitle("Filter", forState: .Normal)
+        filterBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        filterBtn.addTarget(self, action: Selector("filterButtonTapped:"), forControlEvents: .TouchUpInside)
+        searchBar.addSubview(filterBtn)
+        
+        searchField = UITextField()
+        searchField.borderStyle = .None
+        searchField.frame = CGRectMake(searchButton.frame.size.width, 0, searchBar.frame.size.width-searchButton.frame.size.width-filterBtn.frame.size.width, kSearchBarHeight)
+        searchField.returnKeyType = .Done
+        searchField.backgroundColor = UIColor.whiteColor()
+        searchField.font = UIFont(name: "AvenirNext-Regular", size: 13)
+        searchField.clearButtonMode = .WhileEditing
+        searchField.placeholder = "Search for an event!"
+        searchField.delegate = self
+        searchField.addTarget(self, action:"searchTextChanged:", forControlEvents:.EditingChanged)
+        searchBar.addSubview(searchField)
+        
+        filterMenu = UIView(frame: CGRectMake(0, 0, searchBar.frame.size.width, 0))
+        filterMenu.backgroundColor = UIColor.whiteColor()
+        filterMenu.clipsToBounds = true
+        filterMenu.layer.cornerRadius = 4
+        filterMenu.layer.borderColor = UIColor(red: 230/255.0, green: 230/255.0, blue: 230/255.0, alpha: 1.0).CGColor
+        filterMenu.layer.borderWidth = 0.5
+        container.insertSubview(filterMenu, belowSubview: searchBar)
+        
+        let dateBtn = UIButton(type: .System)
+        dateBtn.frame = CGRectMake(14, kSearchBarHeight+14, (filterMenu.frame.size.width-14*5)/kNumFilterButtons, kFilterButtonHeight) //14 because odd number padding doesn't divide equally
+        dateBtn.layer.cornerRadius = 4
+        dateBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
+        dateBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        dateBtn.setTitle("Date", forState: .Normal)
+        dateBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        //TODO: dateBtnTapped implementation
+        //dateBtn.addTarget(self, action: <#T##Selector#>, forControlEvents: .TouchUpInside)
+        filterMenu.addSubview(dateBtn)
+        
+        let sportsBtn = UIButton(type: .System)
+        sportsBtn.frame = CGRectMake(14+dateBtn.frame.size.width+14, dateBtn.frame.origin.y, dateBtn.frame.size.width, kFilterButtonHeight)
+        sportsBtn.layer.cornerRadius = 4
+        sportsBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
+        sportsBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        sportsBtn.setTitle("Sports", forState: .Normal)
+        sportsBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        //TODO: sportsBtnTapped implementation
+        //sportsBtn.addTarget(self, action: <#T##Selector#>, forControlEvents: .TouchUpInside)
+        filterMenu.addSubview(sportsBtn)
+        
+        let distanceBtn = UIButton(type: .System)
+        distanceBtn.frame = CGRectMake(14+dateBtn.frame.size.width+14+sportsBtn.frame.size.width+14, dateBtn.frame.origin.y, dateBtn.frame.size.width, kFilterButtonHeight)
+        distanceBtn.layer.cornerRadius = 4
+        distanceBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
+        distanceBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        distanceBtn.setTitle("Distance", forState: .Normal)
+        distanceBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        //TODO: distanceBtnTapped implementation
+        //distanceBtn.addTarget(self, action: <#T##Selector#>, forControlEvents: .TouchUpInside)
+        filterMenu.addSubview(distanceBtn)
+        
+        let foodBtn = UIButton(type: .System)
+        foodBtn.frame = CGRectMake(14+dateBtn.frame.size.width+14+sportsBtn.frame.size.width+14+distanceBtn.frame.size.width+14, dateBtn.frame.origin.y, dateBtn.frame.size.width, kFilterButtonHeight)
+        foodBtn.layer.cornerRadius = 4
+        foodBtn.backgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1.0)
+        foodBtn.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 12)
+        foodBtn.setTitle("Food", forState: .Normal)
+        foodBtn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        //TODO: foodBtnTapped implementation
+        //foodBtn.addTarget(self, action: <#T##Selector#>, forControlEvents: .TouchUpInside)
+        filterMenu.addSubview(foodBtn)
+        
+        self.view.addSubview(container)
+        
+        searchBar.frame = CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y, searchButton.frame.size.width, searchBar.frame.size.height) //hide initially
+        searchBar.superview?.frame = CGRectMake(kSearchPaddingX, kSearchPaddingY, searchBar.frame.size.width, searchBar.frame.size.height)
+        
+        searchBarCreated = true
+        
+        //set up no results label
+        noResultsLabel = UILabel(frame: CGRectMake(kSearchPaddingX, 0, UIScreen.mainScreen().bounds.size.width-kSearchPaddingX*2, 150))
+        noResultsLabel.center = CGPointMake(self.view.center.x, self.view.center.y - (navigationController?.navigationBar.frame.size.height)! - UIApplication.sharedApplication().statusBarFrame.size.height - 150/2)
+        noResultsLabel.numberOfLines = 0
+        noResultsLabel.hidden = true
+        noResultsLabel.backgroundColor = UIColor.clearColor()
+        noResultsLabel.lineBreakMode = .ByWordWrapping
+        noResultsLabel.textAlignment = .Center
+        noResultsLabel.textColor = UIColor.lightGrayColor()
+        noResultsLabel.text = "No results"
+        noResultsLabel.font = UIFont(name: "AvenirNext-Medium", size: 18)
+        
+        self.view.addSubview(noResultsLabel)
+    }
+    
+    func searchButtonTapped(sender: UIButton) {
+        if let searchText = self.searchField?.text {
+            if self.filterEventsForSearchText(searchText).count != 0 {
+                expandSearchBar()
+            }
+        }
+    }
+    
+    func filterButtonTapped(sender: UIButton) {
+        expandFilterMenu(false)
+    }
+    
+    @IBAction func expandSearchBar() {
+        searchBarExpanded = !searchBarExpanded
+        
+        if filterMenuExpanded {
+            expandFilterMenu(true)
+        } else {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                if self.searchBarExpanded {
+                    self.searchBar.layer.borderWidth = 0.5
+                    self.searchButton.layer.borderWidth = 0
+                    
+                    self.searchButton.layer.cornerRadius = 0
+                    
+                    self.searchBar.frame = CGRectMake(self.searchBar.frame.origin.x, self.searchBar.frame.origin.y, UIScreen.mainScreen().bounds.size.width-self.kSearchPaddingX*2, self.searchBar.frame.size.height)
+                    self.searchBar.superview?.frame = CGRectMake(self.kSearchPaddingX, self.kSearchPaddingY, self.searchBar.frame.size.width, self.searchBar.frame.size.height)
+                } else {
+                    self.searchBar.layer.borderWidth = 0
+                            
+                    self.searchBar.frame = CGRectMake(self.searchBar.frame.origin.x, self.searchBar.frame.origin.y, self.searchButton.frame.size.width, self.searchBar.frame.size.height)
+                    self.searchBar.superview?.frame = CGRectMake(self.kSearchPaddingX, self.kSearchPaddingY, self.searchBar.frame.size.width, self.searchBar.frame.size.height)
+                            
+                    self.searchField.resignFirstResponder()
+                }
+                }) { (finished: Bool) -> Void in
+                    if self.searchBarExpanded {
+                        self.searchBar.backgroundColor = UIColor.whiteColor()
+                        self.searchButton.layer.borderWidth = 0
+                    } else {
+                        self.searchBar.backgroundColor = UIColor.clearColor()
+                        self.searchButton.layer.borderWidth = 0.5
+                        self.searchButton.layer.cornerRadius = 4
+                    }
+            }
+        }
+    }
+
+    @IBAction func expandFilterMenu(collapseSearchBarToo: Bool) {
+        filterMenuExpanded = !filterMenuExpanded
+        
+        let animationDuration = 0.3
+        
+        UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+            if self.filterMenuExpanded {
+                self.searchBar.layer.borderWidth = 0
+                self.filterMenu.frame = CGRectMake(self.filterMenu.frame.origin.x, self.filterMenu.frame.origin.y, self.filterMenu.frame.size.width, self.searchBar.frame.size.height+83)
+                self.filterMenu.superview?.frame = CGRectMake(self.kSearchPaddingX, self.kSearchPaddingY, self.filterMenu.frame.size.width, self.filterMenu.frame.size.height)
+            } else {
+                self.filterMenu.frame = CGRectMake(self.filterMenu.frame.origin.x, self.filterMenu.frame.origin.y, self.filterMenu.frame.size.width, 0)
+                self.filterMenu.superview?.frame = CGRectMake(self.kSearchPaddingX, self.kSearchPaddingY, self.filterMenu.frame.size.width, self.searchBar.frame.size.height)
+            }
+            }) { (finished: Bool) -> Void in
+                if !self.filterMenuExpanded {
+                    self.searchBar.layer.borderWidth = 0.5
+                }
+        }
+        
+        if collapseSearchBarToo {
+            if let searchText = self.searchField?.text {
+                if filterEventsForSearchText(searchText).count != 0 {
+                    UIView.animateWithDuration(animationDuration, delay: animationDuration, options: .AllowAnimatedContent, animations: { () -> Void in
+                            self.searchBar.layer.borderWidth = 0
+                            
+                            self.searchBar.frame = CGRectMake(self.searchBar.frame.origin.x, self.searchBar.frame.origin.y, self.searchButton.frame.size.width, self.searchBar.frame.size.height)
+                            self.searchBar.superview?.frame = CGRectMake(self.kSearchPaddingX, self.kSearchPaddingY, self.searchBar.frame.size.width, self.searchBar.frame.size.height)
+                            
+                            self.searchField.resignFirstResponder()
+                        }) { (finished: Bool) -> Void in
+                            self.searchBar.backgroundColor = UIColor.clearColor()
+                            self.searchButton.layer.borderWidth = 0.5
+                            self.searchButton.layer.cornerRadius = 4
+                    }
+                }
+            }
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if let searchText = searchField?.text {
+            if filterEventsForSearchText(searchText).count != 0 {
+                //collapse search bar when scrolling
+                let animationDuration = 0.2
+                var delay = 0.0
+                
+                if filterMenuExpanded {
+                    delay = animationDuration
+                }
+                
+                UIView.animateWithDuration(animationDuration, animations: { () -> Void in
+                    self.filterMenu.frame = CGRectMake(self.filterMenu.frame.origin.x, self.filterMenu.frame.origin.y, self.filterMenu.frame.size.width, 0)
+                    self.filterMenu.superview?.frame = CGRectMake(self.kSearchPaddingX, self.kSearchPaddingY, self.filterMenu.frame.size.width, self.searchBar.frame.size.height)
+                    }, completion: { (finished: Bool) -> Void in
+                        self.searchBar.layer.borderWidth = 0.5
+                        
+                        self.filterMenuExpanded = false
+                })
+                
+                UIView.animateWithDuration(animationDuration, delay: delay, options: .AllowAnimatedContent, animations: { () -> Void in
+                    self.searchBar.layer.borderWidth = 0
+                    
+                    self.searchBar.frame = CGRectMake(self.searchBar.frame.origin.x, self.searchBar.frame.origin.y, self.searchButton.frame.size.width, self.searchBar.frame.size.height)
+                    self.searchBar.superview?.frame = CGRectMake(self.kSearchPaddingX, self.kSearchPaddingY, self.searchBar.frame.size.width, self.searchBar.frame.size.height)
+                    
+                    self.searchField.resignFirstResponder()
+                    }) { (finished: Bool) -> Void in
+                        self.searchBar.backgroundColor = UIColor.clearColor()
+                        self.searchButton.layer.borderWidth = 0.5
+                        self.searchButton.layer.cornerRadius = 4
+                        
+                        self.searchBarExpanded = false
+                }
+            }
+        }
+    }
+    
+    //MARK: - Text field
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let searchText = searchField?.text {
-            if filterEventsForSearchText(searchText).count != 0 && !firstLoad {
+            if filterEventsForSearchText(searchText).count != 0 {
                 textField.resignFirstResponder()
             }
         }
@@ -77,80 +363,14 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         return true
     }
     
-    func filterButtonTapped(sender: UIButton) {
-        expandFilterMenu()
-    }
-    
-    @IBAction func expandSearchBar() {
-        searchBarExpanded = !searchBarExpanded
-        
-        UIView.beginAnimations(nil, context: nil)
-        if searchBarExpanded {
-            searchBarContainer.layer.borderWidth = 0.5
-            searchButton.layer.borderWidth = 0
-            
-            searchBarContainer.backgroundColor = UIColor.whiteColor()
-            
-            searchBarContainer.frame = CGRectMake(searchBarContainer.frame.origin.x, searchBarContainer.frame.origin.y, searchBar.frame.size.width, searchBarContainer.frame.size.height)
-            searchField.frame = CGRectMake(searchField.frame.origin.x, searchField.frame.origin.y, searchBar.frame.size.width-searchButton.frame.size.width-filterButton.frame.size.width, searchField.frame.size.height)
-        } else {
-            if let searchText = searchField?.text {
-                if filterEventsForSearchText(searchText).count != 0 && !firstLoad {
-                    searchBarContainer.layer.borderWidth = 0
-                    searchButton.layer.borderWidth = 0.5
-                    
-                    searchBarContainer.backgroundColor = UIColor.clearColor()
-                    
-                    searchBarContainer.frame = CGRectMake(searchBarContainer.frame.origin.x, searchBarContainer.frame.origin.y, searchBar.frame.size.height, searchBarContainer.frame.size.height)
-                    searchField.frame = CGRectMake(searchField.frame.origin.x, searchField.frame.origin.y, 0, searchField.frame.size.height)
-                    
-                    searchField.resignFirstResponder()
-                    
-                    if filterMenuExpanded {
-                        expandFilterMenu()
-                    }
-                }
-            }
-        }
-        UIView.commitAnimations()
-    }
-
-    @IBAction func expandFilterMenu() {
-        filterMenuExpanded = !filterMenuExpanded
-        
-        UIView.beginAnimations(nil, context: nil)
-        if filterMenuExpanded {
-            filterMenu.frame = CGRectMake(filterMenu.frame.origin.x, filterMenu.frame.origin.y, filterMenu.frame.size.width, searchBar.frame.size.height+83)
-        } else {
-            filterMenu.frame = CGRectMake(filterMenu.frame.origin.x, filterMenu.frame.origin.y, filterMenu.frame.size.width, 0)
-        }
-        UIView.commitAnimations()
-    }
-    
     func searchTextChanged(sender: UITextField) {
         tableView.reloadData()
         
         if filterEventsForSearchText(sender.text!).count == 0 {
             //no results
-            let kPadding: CGFloat = 15
-            let noResultsLabel = UILabel(frame: CGRectMake(kPadding, 0, UIScreen.mainScreen().bounds.size.width-kPadding*2, 150))
-            noResultsLabel.center = CGPointMake(self.view.center.x, self.view.center.y - (navigationController?.navigationBar.frame.size.height)! - UIApplication.sharedApplication().statusBarFrame.size.height)
-            noResultsLabel.numberOfLines = 0
-            noResultsLabel.backgroundColor = UIColor.clearColor()
-            noResultsLabel.lineBreakMode = .ByWordWrapping
-            noResultsLabel.textAlignment = .Center
-            noResultsLabel.textColor = UIColor.lightGrayColor()
-            noResultsLabel.text = "No results"
-            noResultsLabel.tag = kNoResultsLabelTag
-            noResultsLabel.font = UIFont(name: "AvenirNext-Medium", size: 18)
-            
-            if self.view.viewWithTag(kNoResultsLabelTag) == nil {
-                self.view.addSubview(noResultsLabel)
-            }
+            noResultsLabel.hidden = false
         } else {
-            if let noResultsLabel = self.view.viewWithTag(kNoResultsLabelTag) {
-                noResultsLabel.removeFromSuperview()
-            }
+            noResultsLabel.hidden = true
         }
     }
     
@@ -163,40 +383,11 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
             return events
         }
     }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        /*if let searchText = searchField?.text {
-            if filterEventsForSearchText(searchText).count != 0 && !firstLoad {
-                //collapse search bar when scrolling
-                UIView.beginAnimations(nil, context: nil)
-                searchBarExpanded = false
-                
-                searchBarContainer.layer.borderWidth = 0
-                
-                searchBarContainer.backgroundColor = UIColor.clearColor()
-                
-                searchBarContainer.frame = CGRectMake(searchBarContainer.frame.origin.x, searchBarContainer.frame.origin.y, searchBar.frame.size.height, searchBarContainer.frame.size.height)
-                searchField.frame = CGRectMake(searchField.frame.origin.x, searchField.frame.origin.y, 0, searchField.frame.size.height)
-                UIView.commitAnimations()
-                
-                searchField?.resignFirstResponder()
-                
-                if filterMenuExpanded {
-                    expandFilterMenu()
-                }
-            }
-        }*/
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
+    //MARK: - Table view
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let searchText = searchField.text {
+        if let searchText = searchField?.text {
             return filterEventsForSearchText(searchText).count
         } else {
             return events.count
@@ -207,7 +398,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! EventListTableViewCell
         
         var correctArray: [Event]!
-        if let searchText = searchField.text {
+        if let searchText = searchField?.text {
             correctArray = filterEventsForSearchText(searchText)
         } else {
             correctArray = events
