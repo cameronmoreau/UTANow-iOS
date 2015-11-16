@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import Parse
+import ParseFacebookUtilsV4
 
 class EventListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
@@ -14,6 +17,18 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         Event(title: "UT Arlington vs. Houston Baptist", location: "600 S. Center St. Arlington, Texas  ", time: "Friday October 16th, 2015 @ 7:00PM", imageUrl: "http://alcalde.texasexes.org/wp-content/uploads/2011/12/13-gamer2011-12-7_UTA_Basketball_Jorge.Corona549.jpg"),
         Event(title: "(50% OFF) PIE FIVE PIZZA", location: "501 Spaniolo Dr. Arlington, Texas ", time: "Monday October 19th, 2015 @ 8:00PM", imageUrl: "http://www.roffinis.com/wp-content/uploads/2011/11/menu12.jpg")
     ]
+    
+    @IBAction func tempPublishLogin(sender: UIBarButtonItem) {
+        let permissions = ["manage_pages"]
+        
+        PFFacebookUtils.logInInBackgroundWithPublishPermissions(permissions, block: {
+            (user, error) -> Void in
+            
+            if user != nil {
+                print("It worked")
+            }
+        })
+    }
     
     @IBOutlet weak var tableView: UITableView!
     

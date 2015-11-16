@@ -30,14 +30,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
         //Facebook
+//        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        //return true
+//        if let accessToken = NSUserDefaults.standardUserDefaults().objectForKey("FBAccessToken") {
+//            //accessToken = accaccessToken as! FBSDKAccessToken
+//            let token = FBSDKSettings.
+//            
+//            if accessToken.expirationDate.timeIntervalSince1970 > NSDate().timeIntervalSince1970 {
+//                FBSDKAccessToken.setCurrentAccessToken(accessToken as! FBSDKAccessToken)
+//                //FBSDKAccessToken.init
+//            }
+//        }
+        
+        return true
     }
     
     //Facebook login callback
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application,
+            openURL: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {

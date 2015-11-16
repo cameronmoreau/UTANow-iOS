@@ -5,6 +5,61 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Admin Select Organization Table View Controller-->
+        <scene sceneID="qhQ-RG-Wwh">
+            <objects>
+                <tableViewController id="8Ck-3I-QA3" customClass="AdminSelectOrganizationTableViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="bsw-Ub-eHY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ewQ-p0-rLi" customClass="AdminSelectOrganizationTableViewCell" customModule="UTANow" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewQ-p0-rLi" id="ih9-WJ-sL8">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Y-hZ-O5i">
+                                            <rect key="frame" x="16" y="8" width="50" height="50"/>
+                                            <animations/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn4-PF-15s">
+                                            <rect key="frame" x="74" y="8" width="392" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="imagePicture" destination="Y5Y-hZ-O5i" id="arg-Pi-vWf"/>
+                                    <outlet property="labelName" destination="Rn4-PF-15s" id="GZe-P8-xEh"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8Ck-3I-QA3" id="S5k-G6-MMX"/>
+                            <outlet property="delegate" destination="8Ck-3I-QA3" id="39p-De-Vtg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="dJI-mn-2nj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LpR-Ys-r25">
+                            <connections>
+                                <action selector="btnCancel:" destination="8Ck-3I-QA3" id="oIM-65-2Iq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dT-wA-dgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1921" y="432"/>
+        </scene>
         <!--Login-->
         <scene sceneID="5lf-AY-nVc">
             <objects>
@@ -566,7 +621,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="UTA Now" id="xu0-IP-oKs">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="fwz-ov-kzo"/>
+                        <barButtonItem key="rightBarButtonItem" title="View Orgs" id="gRn-nm-aAN">
+                            <connections>
+                                <segue destination="AVL-sd-ANw" kind="presentation" id="jIc-KD-beV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="filterButton" destination="H6d-Yh-ccD" id="qXn-7j-Pos"/>
@@ -580,7 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUf-MI-uOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008" y="230"/>
+            <point key="canvasLocation" x="2820" y="230"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="PeP-JA-RGE">
@@ -855,6 +914,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="773-ds-KX0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1011" y="-441"/>
+        </scene>
+        <!--AdminSelectOrgNavigationController-->
+        <scene sceneID="g7e-Hq-fK3">
+            <objects>
+                <navigationController title="AdminSelectOrgNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="AVL-sd-ANw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dIA-EF-2Fl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Ck-3I-QA3" kind="relationship" relationship="rootViewController" id="RlX-Wd-5B8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMi-T7-mdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="432"/>
         </scene>
     </scenes>
     <resources>

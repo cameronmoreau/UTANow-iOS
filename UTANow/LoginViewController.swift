@@ -17,8 +17,17 @@ class LoginViewController: UIViewController {
     @IBAction func actionLoginWithFacebook(sender: AnyObject) {
         let permissions = ["public_profile", "email", "user_friends", "user_birthday"]
         
+        //Save for later
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: { (user, error) -> Void in
             if user != nil {
+                //Store access token
+//                let token = FBSDKAccessToken.currentAccessToken().tokenString
+//                let date = FBSDKAccessToken.currentAccessToken().expirationDate
+//                
+//                NSUserDefaults.standardUserDefaults().setObject(token, forKey: "FBAccessToken")
+//                NSUserDefaults.standardUserDefaults().setObject(date, forKey: "FBExperationDate")
+//                NSUserDefaults.standardUserDefaults().synchronize()
+                
                 self.finishLoggingInWithParse(user!)
             }
         })

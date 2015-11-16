@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		490573561BF28A000046DB61 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490573551BF28A000046DB61 /* EventViewController.swift */; };
 		4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7E236FAA1BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E236FA91BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift */; };
 		7E333BBB1BEE72F100FD07FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB51BEE72F100FD07FF /* Bolts.framework */; };
 		7E333BBC1BEE72F100FD07FF /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */; };
 		7E333BBD1BEE72F100FD07FF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB71BEE72F100FD07FF /* FBSDKCoreKit.framework */; };
@@ -34,6 +35,7 @@
 		7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */; };
 		7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */; };
 		7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */; };
+		7EFB399F1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFB399E1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				494FE0131BF67F6F00AEE9FD /* Pods_UTANow.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +55,7 @@
 		134EFDD36714FF163AECE39A /* Pods-UTANow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.release.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.release.xcconfig"; sourceTree = "<group>"; };
 		490573551BF28A000046DB61 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		6EC90F056C5CF094943D9341 /* Pods-UTANow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.debug.xcconfig"; sourceTree = "<group>"; };
+		7E236FA91BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSelectOrganizationTableViewController.swift; sourceTree = "<group>"; };
 		7E333BB51BEE72F100FD07FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		7E333BB71BEE72F100FD07FF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		7E846D721BEDA29E00BF9B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E846D7C1BEDA68900BF9B0D /* UTANow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTANow-Bridging-Header.h"; sourceTree = "<group>"; };
 		7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		7EFB399E1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSelectOrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTANow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494FE0121BF67F6F00AEE9FD /* Pods_UTANow.framework in Frameworks */,
 				7E333BDC1BEE74AC00FD07FF /* libsqlite3.tbd in Frameworks */,
 				7E333BDA1BEE74A500FD07FF /* libz.tbd in Frameworks */,
 				7E333BD81BEE749A00FD07FF /* SystemConfiguration.framework in Frameworks */,
@@ -183,6 +185,8 @@
 				7E333BE41BEE84CC00FD07FF /* EventListViewController.swift */,
 				7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */,
 				490573551BF28A000046DB61 /* EventViewController.swift */,
+				7E236FA91BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift */,
+				7EFB399E1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -345,10 +349,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E333BE91BEEAD4000FD07FF /* EventListTableViewCell.swift in Sources */,
+				7E236FAA1BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift in Sources */,
 				7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */,
 				7E333BE51BEE84CC00FD07FF /* EventListViewController.swift in Sources */,
 				7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */,
 				490573561BF28A000046DB61 /* EventViewController.swift in Sources */,
+				7EFB399F1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift in Sources */,
 				7E333BE71BEEABE800FD07FF /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
