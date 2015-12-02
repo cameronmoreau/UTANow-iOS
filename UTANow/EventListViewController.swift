@@ -13,6 +13,8 @@ import ParseFacebookUtilsV4
 
 class EventListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
+    var refreshControl:UIRefreshControl!
+    
     let kSearchPaddingX: CGFloat = 15
     let kSearchPaddingY: CGFloat = 20
     
@@ -22,10 +24,8 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     let kFilterButtonHeight: CGFloat = 55
     
-    let events = [
-        Event(title: "UT Arlington vs. Houston Baptist", location: "600 S. Center St. Arlington, Texas  ", time: "Friday October 16th, 2015 @ 7:00PM", imageUrl: "http://alcalde.texasexes.org/wp-content/uploads/2011/12/13-gamer2011-12-7_UTA_Basketball_Jorge.Corona549.jpg"),
-        Event(title: "(50% OFF) PIE FIVE PIZZA", location: "501 Spaniolo Dr. Arlington, Texas ", time: "Monday October 19th, 2015 @ 8:00PM", imageUrl: "http://www.roffinis.com/wp-content/uploads/2011/11/menu12.jpg")
-    ]
+    var events: [Event] = []
+    let newEvents = []
     
     @IBAction func tempPublishLogin(sender: UIBarButtonItem) {
         let permissions = ["manage_pages"]
@@ -65,6 +65,14 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         //change nav bar title font
         //TODO: pretty-up the navbar title
         //navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Woah", size: 35)!]
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+        
+        //Query for parse events
+        refresh(nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -78,6 +86,23 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - Pull to refresh
+    func refresh(sender: AnyObject?) {
+        let query = PFQuery(className: "Event")
+        query.findObjectsInBackgroundWithBlock({
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                self.events = objects as! [Event]
+                self.tableView.reloadData()
+            }
+            
+            if self.refreshControl.refreshing {
+                self.refreshControl.endRefreshing()
+            }
+        })
     }
     
     //MARK: - IBActions
@@ -406,7 +431,8 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         
         //Give event object to the cell
         cell.setEvent(correctArray[indexPath.row])
-
+        cell.setEvent(events[indexPath.row])
+        
         return cell
     }
     

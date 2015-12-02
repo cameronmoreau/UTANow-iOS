@@ -84,14 +84,12 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func configureView() {
         if let e = event {
-            dateLbl.text = e.time
+            dateLbl.text = e.getListingStartTime()
             titleLbl.text = e.title
-            locationLbl.text = e.location
+            locationLbl.text = e.getListingAddress()
+            descriptionLbl.text = e.desc
             
-            //set header image
-            if let url = e.imageUrl {
-                headerImgView.kf_setImageWithURL(NSURL(string: url)!)
-            }
+            headerImgView.kf_setImageWithURL(NSURL(string: e.imageUrl)!)
         }
     }
     

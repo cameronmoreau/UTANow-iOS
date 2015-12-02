@@ -18,12 +18,13 @@ class EventListTableViewCell: UITableViewCell {
     @IBOutlet weak var overlay: UIView!
     
     func setEvent(event: Event) {
-        labelDate.text = event.time
+        
         labelTitle.text = event.title
-        labelLocation.text = event.location
+        labelDate.text = event.getListingStartTime()
+        labelLocation.text = event.getListingAddress()
         
         let bgImage = UIImageView()
-        bgImage.kf_setImageWithURL(NSURL(string: event.imageUrl!)!)
+        bgImage.kf_setImageWithURL(NSURL(string: event.imageUrl)!)
     
         self.backgroundView = bgImage
         self.backgroundView?.contentMode = .ScaleAspectFill

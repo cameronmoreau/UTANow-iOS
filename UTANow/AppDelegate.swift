@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        //Parse subclasses
+        Event.registerSubclass()
+        
         //Parse Requirements
         Parse.enableLocalDatastore()
         Parse.setApplicationId("F9BqVIRG5hs1PPUktFM5FGrQ4gnJgGyHZKwTSjiY",
