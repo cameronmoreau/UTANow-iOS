@@ -430,8 +430,14 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
         //Give event object to the cell
-        cell.setEvent(correctArray[indexPath.row])
-        cell.setEvent(events[indexPath.row])
+        cell.setData(correctArray[indexPath.row])
+        cell.setData(events[indexPath.row])
+        
+        cell.btnOpenMap.tag = indexPath.row;
+        cell.btnOpenMap.addTarget(self, action: "openMapView:", forControlEvents: .TouchUpInside)
+        
+        cell.btnQuickAdd.tag = indexPath.row;
+        cell.btnQuickAdd.addTarget(self, action: "quickAdd:", forControlEvents: .TouchUpInside)
         
         return cell
     }
@@ -483,15 +489,28 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "showEvent" {
+        if segue.identifier == "showEventSegue" {
             let tvc = segue.destinationViewController as! EventViewController
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil) //gets rid of text after chevron
             if tableView.indexPathForSelectedRow?.row != nil {
                 tvc.event = events[tableView.indexPathForSelectedRow!.row]
             }
         }
+        
+        else if segue.identifier == "mapSegue" {
+            let mapVC = (segue.destinationViewController as! UINavigationController).topViewController as! MapViewController
+            let selectedEvent = events[sender!.tag]
+            mapVC.markerPoint = selectedEvent.getLocationGPS()
+            mapVC.markerTitle = selectedEvent.title
+        }
     }
-
+    
+    
+    // MARK: - EventCell Clickable Items
+    func openMapView(sender: UIButton) {
+        self.performSegueWithIdentifier("mapSegue", sender: sender)
+    }
+    
+    func quickAdd(sender: UIButton) {
+    }
 }

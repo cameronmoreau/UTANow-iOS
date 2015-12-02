@@ -48,4 +48,8 @@ class Event : PFObject, PFSubclassing {
         return dateFormat.stringFromDate(startsAt)
         
     }
+    
+    func getLocationGPS() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: locationGPS.latitude, longitude: locationGPS.longitude)
+    }
 }

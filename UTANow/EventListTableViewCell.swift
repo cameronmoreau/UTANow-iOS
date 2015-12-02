@@ -16,9 +16,10 @@ class EventListTableViewCell: UITableViewCell {
     @IBOutlet weak var labelLocation: UILabel!
     
     @IBOutlet weak var overlay: UIView!
+    @IBOutlet weak var btnQuickAdd: UIButton!
+    @IBOutlet weak var btnOpenMap: UIButton!
     
-    func setEvent(event: Event) {
-        
+    func setData(event: Event) {
         labelTitle.text = event.title
         labelDate.text = event.getListingStartTime()
         labelLocation.text = event.getListingAddress()
