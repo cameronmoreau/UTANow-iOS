@@ -13,6 +13,14 @@ import ParseFacebookUtilsV4
 
 class EventListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
+    @IBAction func openMenu(sender: AnyObject) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewControllerWithIdentifier("MenuOverlayViewController")
+        vc.modalPresentationStyle = .OverCurrentContext
+        vc.modalTransitionStyle = .CrossDissolve
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
     var refreshControl:UIRefreshControl!
     
     let kSearchPaddingX: CGFloat = 15
@@ -65,6 +73,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         //change nav bar title font
         //TODO: pretty-up the navbar title
         //navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Woah", size: 35)!]
+        
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")

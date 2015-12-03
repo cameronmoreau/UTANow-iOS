@@ -72,7 +72,12 @@ class LoginViewController: UIViewController {
                 let imageData = data.objectForKey("picture")?.objectForKey("data")
                 if let noImage = imageData?.objectForKey("is_silhouette") {
                     if !(noImage as! Bool) {
-                        user["profilePicture"] = imageData?.objectForKey("url")
+                        let url = imageData?.objectForKey("url")
+                        user["profilePicture"] = url
+                        
+                        //Save profile image to NSUserDefaults
+                        NSUserDefaults.standardUserDefaults().setObject(url, forKey: "ProfileImageUrl")
+                        NSUserDefaults.standardUserDefaults().synchronize()
                     }
                 }
                 

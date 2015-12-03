@@ -374,6 +374,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="UTA Now" id="xu0-IP-oKs">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="bJ9-Uf-F4Q">
+                            <connections>
+                                <action selector="openMenu:" destination="X2H-RG-K4O" id="cfZ-bv-B3C"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="View Orgs" id="gRn-nm-aAN">
                             <connections>
                                 <segue destination="AVL-sd-ANw" kind="presentation" id="jIc-KD-beV"/>
@@ -661,6 +666,131 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2350" y="-1133"/>
+        </scene>
+        <!--Menu Overlay View Controller-->
+        <scene sceneID="sPc-oZ-nAN">
+            <objects>
+                <viewController storyboardIdentifier="MenuOverlayViewController" id="NrM-YP-ehk" customClass="MenuOverlayViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3MK-pV-BDM"/>
+                        <viewControllerLayoutGuide type="bottom" id="aHo-Cl-NWT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k2E-Kq-IDb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4O-xO-fZw">
+                                <rect key="frame" x="17" y="26" width="39" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeMenu:" destination="NrM-YP-ehk" eventType="touchUpInside" id="uNf-uY-ObM"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3u7-KR-W4t">
+                                <rect key="frame" x="121" y="139" width="358" height="214"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THq-Ci-NMa">
+                                        <rect key="frame" x="90" y="98" width="179" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="GHL-2D-Kzh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <state key="normal" title="Organizations">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openOrganizations:" destination="NrM-YP-ehk" eventType="touchUpInside" id="jWr-GX-Ij2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gF-tt-Zkg">
+                                        <rect key="frame" x="88" y="141" width="183" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Hwl-i1-nvp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <state key="normal" title="Create an Event">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openCreateEvent:" destination="NrM-YP-ehk" eventType="touchUpInside" id="Nvk-wB-W59"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBw-vT-JRL">
+                                        <rect key="frame" x="95" y="184" width="170" height="30"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="g9I-fs-Cr5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <state key="normal" title="Settings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openSettings:" destination="NrM-YP-ehk" eventType="touchUpInside" id="UrW-iY-ICH"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-SG-pgX">
+                                        <rect key="frame" x="140" y="0.0" width="80" height="80"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="3Pd-Ec-4ME"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="xBw-vT-JRL" firstAttribute="top" secondItem="4gF-tt-Zkg" secondAttribute="bottom" constant="13" id="0hQ-Mq-XIY"/>
+                                    <constraint firstItem="4gF-tt-Zkg" firstAttribute="leading" secondItem="3u7-KR-W4t" secondAttribute="leading" constant="88" id="1G6-SS-JRj"/>
+                                    <constraint firstAttribute="bottom" secondItem="xBw-vT-JRL" secondAttribute="bottom" id="6jL-iy-nZ7"/>
+                                    <constraint firstItem="THq-Ci-NMa" firstAttribute="centerX" secondItem="4gF-tt-Zkg" secondAttribute="centerX" id="7fk-BX-vAN"/>
+                                    <constraint firstItem="4gF-tt-Zkg" firstAttribute="top" secondItem="THq-Ci-NMa" secondAttribute="bottom" constant="13" id="DdE-40-Osg"/>
+                                    <constraint firstItem="THq-Ci-NMa" firstAttribute="leading" secondItem="3u7-KR-W4t" secondAttribute="leading" constant="90" id="XK7-6m-AhM"/>
+                                    <constraint firstItem="Lag-SG-pgX" firstAttribute="centerX" secondItem="THq-Ci-NMa" secondAttribute="centerX" id="dJh-Fv-CDB"/>
+                                    <constraint firstItem="xBw-vT-JRL" firstAttribute="centerX" secondItem="4gF-tt-Zkg" secondAttribute="centerX" id="dwB-3k-0zY"/>
+                                    <constraint firstItem="xBw-vT-JRL" firstAttribute="leading" secondItem="3u7-KR-W4t" secondAttribute="leading" constant="95" id="f7B-M0-jqk"/>
+                                    <constraint firstItem="4gF-tt-Zkg" firstAttribute="centerX" secondItem="3u7-KR-W4t" secondAttribute="centerX" id="h96-KE-Zoc"/>
+                                    <constraint firstItem="THq-Ci-NMa" firstAttribute="top" secondItem="Lag-SG-pgX" secondAttribute="bottom" constant="18" id="hD8-Ly-SGh"/>
+                                    <constraint firstItem="Lag-SG-pgX" firstAttribute="top" secondItem="3u7-KR-W4t" secondAttribute="top" id="hjX-mU-xJ9"/>
+                                    <constraint firstAttribute="height" constant="214" id="qtW-9M-qWF"/>
+                                    <constraint firstAttribute="width" constant="358" id="xLL-V1-eJK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="v4O-xO-fZw" firstAttribute="leading" secondItem="k2E-Kq-IDb" secondAttribute="leadingMargin" constant="-3" id="1vA-Oy-eep"/>
+                            <constraint firstItem="3u7-KR-W4t" firstAttribute="top" secondItem="3MK-pV-BDM" secondAttribute="bottom" constant="119" id="KoY-6o-dTa"/>
+                            <constraint firstItem="3u7-KR-W4t" firstAttribute="centerX" secondItem="k2E-Kq-IDb" secondAttribute="centerX" id="YrT-VX-AVA"/>
+                            <constraint firstItem="v4O-xO-fZw" firstAttribute="top" secondItem="3MK-pV-BDM" secondAttribute="bottom" constant="6" id="hYc-4l-oS8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnCreateEvent" destination="4gF-tt-Zkg" id="PhP-LD-Udg"/>
+                        <outlet property="btnOrganizations" destination="THq-Ci-NMa" id="8gu-EZ-GXH"/>
+                        <outlet property="btnSettings" destination="xBw-vT-JRL" id="s7I-1X-Hhg"/>
+                        <outlet property="image" destination="Lag-SG-pgX" id="Swo-VZ-KN1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ax1-wQ-OSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953" y="-1125"/>
         </scene>
         <!--HomeNavigationController-->
         <scene sceneID="eLz-d2-nyB">
