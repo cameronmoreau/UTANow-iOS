@@ -15,7 +15,8 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func openMenu(sender: AnyObject) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewControllerWithIdentifier("MenuOverlayViewController")
+        let vc = sb.instantiateViewControllerWithIdentifier("MenuOverlayViewController") as!MenuOverlayViewController
+        vc.delegate = self
         vc.modalPresentationStyle = .OverCurrentContext
         vc.modalTransitionStyle = .CrossDissolve
         self.presentViewController(vc, animated: true, completion: nil)
@@ -522,4 +523,26 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func quickAdd(sender: UIButton) {
     }
+}
+
+extension EventListViewController : MenuOverlayDelegate {
+    
+    func closePressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func organizationsPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func createEventPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("createEventSegue", sender: nil)
+    }
+    
+    func settingsPressed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("settingsSegue", sender: nil)
+    }
+    
 }

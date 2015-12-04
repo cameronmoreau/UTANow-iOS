@@ -34,6 +34,7 @@
 		7E846D6C1BEDA29E00BF9B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */; };
 		7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */; };
 		7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */; };
+		7E8CF3ED1C10F2DC00E8DA02 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8CF3EC1C10F2DC00E8DA02 /* SettingsViewController.swift */; };
 		7EAC2CD71C10BA1500A983AF /* MenuOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC2CD61C10BA1500A983AF /* MenuOverlayViewController.swift */; };
 		7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */; };
 		7EDD63881C0ED456003B6476 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD63871C0ED456003B6476 /* MapViewController.swift */; };
@@ -85,6 +86,7 @@
 		7E846D701BEDA29E00BF9B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E846D721BEDA29E00BF9B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E846D7C1BEDA68900BF9B0D /* UTANow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTANow-Bridging-Header.h"; sourceTree = "<group>"; };
+		7E8CF3EC1C10F2DC00E8DA02 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7EAC2CD61C10BA1500A983AF /* MenuOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOverlayViewController.swift; sourceTree = "<group>"; };
 		7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		7EDD63871C0ED456003B6476 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				7EFB399E1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift */,
 				7EDD63871C0ED456003B6476 /* MapViewController.swift */,
 				7EAC2CD61C10BA1500A983AF /* MenuOverlayViewController.swift */,
+				7E8CF3EC1C10F2DC00E8DA02 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			files = (
 				7E333BE91BEEAD4000FD07FF /* EventListTableViewCell.swift in Sources */,
 				7E236FAA1BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift in Sources */,
+				7E8CF3ED1C10F2DC00E8DA02 /* SettingsViewController.swift in Sources */,
 				7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */,
 				7E333BE51BEE84CC00FD07FF /* EventListViewController.swift in Sources */,
 				7EDD63881C0ED456003B6476 /* MapViewController.swift in Sources */,

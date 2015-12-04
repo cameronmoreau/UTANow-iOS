@@ -8,7 +8,16 @@
 
 import UIKit
 
+protocol MenuOverlayDelegate {
+    func closePressed()
+    func organizationsPressed()
+    func createEventPressed()
+    func settingsPressed()
+}
+
 class MenuOverlayViewController: UIViewController {
+    
+    var delegate: MenuOverlayDelegate?
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var btnOrganizations: UIButton!
@@ -16,17 +25,19 @@ class MenuOverlayViewController: UIViewController {
     @IBOutlet weak var btnSettings: UIButton!
     
     @IBAction func closeMenu(sender: AnyObject) {
-        //This is bad and needs to be removed
-        self.dismissViewControllerAnimated(true, completion: nil)
+        delegate?.closePressed()
     }
     
     @IBAction func openOrganizations(sender: AnyObject) {
+        delegate?.organizationsPressed()
     }
     
     @IBAction func openCreateEvent(sender: AnyObject) {
+        delegate?.createEventPressed()
     }
     
     @IBAction func openSettings(sender: AnyObject) {
+        delegate?.settingsPressed()
     }
 
     override func viewDidLoad() {
@@ -54,11 +65,14 @@ class MenuOverlayViewController: UIViewController {
     }
     
     func setupAnimations(buttons: [UIButton]) {
-        var start = 0.5, interval = 0.35
+        var start = 0.5
+        let interval = 0.35, yOffset = CGFloat(50)
         
         for b in buttons {
-            b.alpha = 0;
-            UIView.animateWithDuration(start, animations: { b.alpha = 1} )
+            //b.alpha = 0;
+            b.center.y -= yOffset
+            
+            UIView.animateWithDuration(start, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.CurveEaseIn, animations: { b.center.y += yOffset }, completion: nil)
             start += interval
         }
     }
