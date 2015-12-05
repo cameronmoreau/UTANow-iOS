@@ -32,18 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Parse + Facebook
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
-        //Facebook
-//        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-//        if let accessToken = NSUserDefaults.standardUserDefaults().objectForKey("FBAccessToken") {
-//            //accessToken = accaccessToken as! FBSDKAccessToken
-//            let token = FBSDKSettings.
-//            
-//            if accessToken.expirationDate.timeIntervalSince1970 > NSDate().timeIntervalSince1970 {
-//                FBSDKAccessToken.setCurrentAccessToken(accessToken as! FBSDKAccessToken)
-//                //FBSDKAccessToken.init
-//            }
-//        }
+        //Check if logged in
+        if FBSDKAccessToken.currentAccessToken() != nil && PFUser.currentUser() != nil {
+            if PFUser.currentUser()!.isAuthenticated() {
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                self.window?.rootViewController = sb.instantiateViewControllerWithIdentifier("HomeNavigationController")
+            }
+        }
+
         
         return true
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminSelectOrganizationTableViewCell: UITableViewCell {
+class AdminAddOrganizationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imagePicture: UIImageView!
     @IBOutlet weak var labelName: UILabel!

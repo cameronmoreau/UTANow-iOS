@@ -20,14 +20,6 @@ class LoginViewController: UIViewController {
         //Save for later
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: { (user, error) -> Void in
             if user != nil {
-                //Store access token
-//                let token = FBSDKAccessToken.currentAccessToken().tokenString
-//                let date = FBSDKAccessToken.currentAccessToken().expirationDate
-//                
-//                NSUserDefaults.standardUserDefaults().setObject(token, forKey: "FBAccessToken")
-//                NSUserDefaults.standardUserDefaults().setObject(date, forKey: "FBExperationDate")
-//                NSUserDefaults.standardUserDefaults().synchronize()
-                
                 self.finishLoggingInWithParse(user!)
             }
         })
@@ -47,7 +39,6 @@ class LoginViewController: UIViewController {
             print("Logged out")
         } else {
             print("Logged in")
-            FBSDKLoginManager().logOut()
         }
     }
     
@@ -72,7 +63,7 @@ class LoginViewController: UIViewController {
                 let data = result as! NSDictionary
                 user["email"] = data.objectForKey("email") as! String
                 user["firstName"] = data.objectForKey("first_name") as! String
-                user["lastName"] = data.objectForKey("first_name") as! String
+                user["lastName"] = data.objectForKey("last_name") as! String
                 user["gender"] = data.objectForKey("gender") as! String
                 
                 //Get profile Image
@@ -95,12 +86,6 @@ class LoginViewController: UIViewController {
                 })
             }
         })
-    }
-    
-    func getFBUserData(){
-        if((FBSDKAccessToken.currentAccessToken()) != nil){
-            
-        }
     }
     
 }

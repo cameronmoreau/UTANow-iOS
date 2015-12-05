@@ -5,18 +5,18 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Select Organization Table View Controller-->
+        <!--Join an Organization-->
         <scene sceneID="qhQ-RG-Wwh">
             <objects>
-                <tableViewController id="8Ck-3I-QA3" customClass="AdminSelectOrganizationTableViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="bsw-Ub-eHY">
+                <tableViewController id="8Ck-3I-QA3" customClass="AdminAddOrganizationTableViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" id="bsw-Ub-eHY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ewQ-p0-rLi" customClass="AdminSelectOrganizationTableViewCell" customModule="UTANow" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="65"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="organizationCell" id="ewQ-p0-rLi" customClass="AdminAddOrganizationTableViewCell" customModule="UTANow" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="93.5" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewQ-p0-rLi" id="ih9-WJ-sL8">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
@@ -38,9 +38,36 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <outlet property="imagePicture" destination="Y5Y-hZ-O5i" id="arg-Pi-vWf"/>
-                                    <outlet property="labelName" destination="Rn4-PF-15s" id="GZe-P8-xEh"/>
+                                    <outlet property="imagePicture" destination="Y5Y-hZ-O5i" id="i0a-ey-Ird"/>
+                                    <outlet property="labelName" destination="Rn4-PF-15s" id="knh-Za-fLn"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="45" id="eXH-Tf-VFX">
+                                <rect key="frame" x="0.0" y="159" width="600" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eXH-Tf-VFX" id="RYQ-PM-XhS">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't see what you're looking for?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yU0-hW-G77">
+                                            <rect key="frame" x="170" y="12" width="260" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="260" id="5bj-vv-jWB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="yU0-hW-G77" firstAttribute="centerY" secondItem="RYQ-PM-XhS" secondAttribute="centerY" id="UmX-eQ-6i7"/>
+                                        <constraint firstItem="yU0-hW-G77" firstAttribute="top" secondItem="RYQ-PM-XhS" secondAttribute="topMargin" constant="4" id="gQf-jG-Ofm"/>
+                                        <constraint firstItem="yU0-hW-G77" firstAttribute="centerX" secondItem="RYQ-PM-XhS" secondAttribute="centerX" id="guH-1c-1it"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,7 +75,7 @@
                             <outlet property="delegate" destination="8Ck-3I-QA3" id="39p-De-Vtg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dJI-mn-2nj">
+                    <navigationItem key="navigationItem" title="Join an Organization" id="dJI-mn-2nj">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LpR-Ys-r25">
                             <connections>
                                 <action selector="btnCancel:" destination="8Ck-3I-QA3" id="oIM-65-2Iq"/>
@@ -58,7 +85,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dT-wA-dgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2861" y="356"/>
+            <point key="canvasLocation" x="3493" y="1036"/>
         </scene>
         <!--Login-->
         <scene sceneID="5lf-AY-nVc">
@@ -178,12 +205,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3q-5M-2uk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="484" y="356"/>
+            <point key="canvasLocation" x="1936" y="340"/>
         </scene>
         <!--UTA Now-->
         <scene sceneID="zSH-Dy-YE9">
             <objects>
-                <viewController id="X2H-RG-K4O" customClass="EventListViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="UTA Now" id="X2H-RG-K4O" customClass="EventListViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Olt-r8-nMV"/>
                         <viewControllerLayoutGuide type="bottom" id="6sY-br-DpK"/>
@@ -412,11 +439,6 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="bJ9-Uf-F4Q">
                             <connections>
                                 <action selector="openMenu:" destination="X2H-RG-K4O" id="cfZ-bv-B3C"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="View Orgs" id="gRn-nm-aAN">
-                            <connections>
-                                <segue destination="AVL-sd-ANw" kind="presentation" id="jIc-KD-beV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -707,7 +729,7 @@
         <!--SettingsViewController-->
         <scene sceneID="QHN-yI-XCS">
             <objects>
-                <tableViewController title="SettingsViewController" id="YXn-Ll-K4V" sceneMemberID="viewController">
+                <tableViewController title="SettingsViewController" id="YXn-Ll-K4V" customClass="SettingsTableViewController" customModule="UTANow" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="6HW-Y9-gPu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -765,6 +787,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="eiQ-jW-bRc" kind="showDetail" identifier="logoutSegue" id="kxN-zz-1my"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -779,7 +804,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vL1-Ft-TYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1229" y="361"/>
+            <point key="canvasLocation" x="289" y="305"/>
         </scene>
         <!--Menu Overlay View Controller-->
         <scene sceneID="sPc-oZ-nAN">
@@ -909,7 +934,7 @@
         <!--HomeNavigationController-->
         <scene sceneID="eLz-d2-nyB">
             <objects>
-                <navigationController title="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="vYZ-IF-H21" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationController" title="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="vYZ-IF-H21" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Koj-VJ-9ts">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -943,7 +968,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMi-T7-mdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="356"/>
+            <point key="canvasLocation" x="2681" y="1036"/>
         </scene>
         <!--MapNavigationController-->
         <scene sceneID="T15-GP-X10">
@@ -968,6 +993,10 @@
         <scene sceneID="YY0-jm-JbG">
             <objects>
                 <viewController id="aXr-MZ-27L" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vIm-GY-9Ew"/>
+                        <viewControllerLayoutGuide type="bottom" id="pb0-78-Lz8"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sks-JV-YTZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -987,6 +1016,9 @@
                                 <rect key="frame" x="230" y="420" width="140" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Add an Organization"/>
+                                <connections>
+                                    <segue destination="AVL-sd-ANw" kind="presentation" id="VvA-h5-TVM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NzR-BA-tNj">
                                 <rect key="frame" x="284" y="371" width="32" height="30"/>
@@ -1008,7 +1040,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XI-Ur-WfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="484" y="1030"/>
+            <point key="canvasLocation" x="1936" y="1014"/>
         </scene>
     </scenes>
     <resources>

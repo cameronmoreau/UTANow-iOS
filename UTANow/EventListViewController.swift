@@ -34,7 +34,6 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     let kFilterButtonHeight: CGFloat = 55
     
     var events: [Event] = []
-    let newEvents = []
     
     @IBAction func tempPublishLogin(sender: UIBarButtonItem) {
         let permissions = ["manage_pages"]
@@ -432,16 +431,14 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! EventListTableViewCell
         
-        var correctArray: [Event]!
+        //Give search results
+        var filteredEvents: [Event] = events
         if let searchText = searchField?.text {
-            correctArray = filterEventsForSearchText(searchText)
-        } else {
-            correctArray = events
+            filteredEvents = filterEventsForSearchText(searchText)
         }
         
         //Give event object to the cell
-        cell.setData(correctArray[indexPath.row])
-        cell.setData(events[indexPath.row])
+        cell.setData(filteredEvents[indexPath.row])
         
         cell.btnOpenMap.tag = indexPath.row;
         cell.btnOpenMap.addTarget(self, action: "openMapView:", forControlEvents: .TouchUpInside)

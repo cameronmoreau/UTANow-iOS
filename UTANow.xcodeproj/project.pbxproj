@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		490573561BF28A000046DB61 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490573551BF28A000046DB61 /* EventViewController.swift */; };
 		4BF90C03A0D39787497B513E /* Pods_UTANow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		7E236FAA1BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E236FA91BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift */; };
+		7E236FAA1BF6CF7A00470EA5 /* AdminAddOrganizationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E236FA91BF6CF7A00470EA5 /* AdminAddOrganizationTableViewController.swift */; };
 		7E333BBB1BEE72F100FD07FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB51BEE72F100FD07FF /* Bolts.framework */; };
 		7E333BBC1BEE72F100FD07FF /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */; };
 		7E333BBD1BEE72F100FD07FF /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E333BB71BEE72F100FD07FF /* FBSDKCoreKit.framework */; };
@@ -34,11 +34,13 @@
 		7E846D6C1BEDA29E00BF9B0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6A1BEDA29E00BF9B0D /* Main.storyboard */; };
 		7E846D6E1BEDA29E00BF9B0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6D1BEDA29E00BF9B0D /* Assets.xcassets */; };
 		7E846D711BEDA29E00BF9B0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E846D6F1BEDA29E00BF9B0D /* LaunchScreen.storyboard */; };
-		7E8CF3ED1C10F2DC00E8DA02 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8CF3EC1C10F2DC00E8DA02 /* SettingsViewController.swift */; };
 		7EAC2CD71C10BA1500A983AF /* MenuOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC2CD61C10BA1500A983AF /* MenuOverlayViewController.swift */; };
+		7EADB39D1C13831600BBF469 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EADB39C1C13831600BBF469 /* SettingsTableViewController.swift */; };
 		7ED013331BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */; };
 		7EDD63881C0ED456003B6476 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDD63871C0ED456003B6476 /* MapViewController.swift */; };
-		7EFB399F1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFB399E1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift */; };
+		7EECFC491C1254C600A84CE3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EECFC481C1254C600A84CE3 /* SearchBar.swift */; };
+		7EECFC4B1C12675200A84CE3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EECFC4A1C12675200A84CE3 /* UIView.swift */; };
+		7EFB399F1BF6F5D3006BC576 /* AdminAddOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFB399E1BF6F5D3006BC576 /* AdminAddOrganizationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,7 +60,7 @@
 		134EFDD36714FF163AECE39A /* Pods-UTANow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.release.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.release.xcconfig"; sourceTree = "<group>"; };
 		490573551BF28A000046DB61 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		6EC90F056C5CF094943D9341 /* Pods-UTANow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTANow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UTANow/Pods-UTANow.debug.xcconfig"; sourceTree = "<group>"; };
-		7E236FA91BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSelectOrganizationTableViewController.swift; sourceTree = "<group>"; };
+		7E236FA91BF6CF7A00470EA5 /* AdminAddOrganizationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAddOrganizationTableViewController.swift; sourceTree = "<group>"; };
 		7E333BB51BEE72F100FD07FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		7E333BB61BEE72F100FD07FF /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		7E333BB71BEE72F100FD07FF /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -86,11 +88,13 @@
 		7E846D701BEDA29E00BF9B0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E846D721BEDA29E00BF9B0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E846D7C1BEDA68900BF9B0D /* UTANow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTANow-Bridging-Header.h"; sourceTree = "<group>"; };
-		7E8CF3EC1C10F2DC00E8DA02 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7EAC2CD61C10BA1500A983AF /* MenuOverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOverlayViewController.swift; sourceTree = "<group>"; };
+		7EADB39C1C13831600BBF469 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		7ED013321BF2FB6C00A436D7 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		7EDD63871C0ED456003B6476 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		7EFB399E1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSelectOrganizationTableViewCell.swift; sourceTree = "<group>"; };
+		7EECFC481C1254C600A84CE3 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		7EECFC4A1C12675200A84CE3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		7EFB399E1BF6F5D3006BC576 /* AdminAddOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAddOrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		DD6C32B5BBD3E1D8DC1D5F1E /* Pods_UTANow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTANow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,6 +172,8 @@
 		7E846D651BEDA29E00BF9B0D /* UTANow */ = {
 			isa = PBXGroup;
 			children = (
+				7EECFC471C1254A300A84CE3 /* Extensions */,
+				7EECFC461C12549B00A84CE3 /* Widgets */,
 				7E846D7B1BEDA4A400BF9B0D /* SupportingFiles */,
 				7E846D7A1BEDA49E00BF9B0D /* Resources */,
 				7E846D791BEDA49800BF9B0D /* Controllers */,
@@ -191,11 +197,11 @@
 				7E333BE41BEE84CC00FD07FF /* EventListViewController.swift */,
 				7E333BE81BEEAD4000FD07FF /* EventListTableViewCell.swift */,
 				490573551BF28A000046DB61 /* EventViewController.swift */,
-				7E236FA91BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift */,
-				7EFB399E1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift */,
+				7E236FA91BF6CF7A00470EA5 /* AdminAddOrganizationTableViewController.swift */,
+				7EFB399E1BF6F5D3006BC576 /* AdminAddOrganizationTableViewCell.swift */,
 				7EDD63871C0ED456003B6476 /* MapViewController.swift */,
 				7EAC2CD61C10BA1500A983AF /* MenuOverlayViewController.swift */,
-				7E8CF3EC1C10F2DC00E8DA02 /* SettingsViewController.swift */,
+				7EADB39C1C13831600BBF469 /* SettingsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -218,6 +224,22 @@
 				7E846D7C1BEDA68900BF9B0D /* UTANow-Bridging-Header.h */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		7EECFC461C12549B00A84CE3 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				7EECFC481C1254C600A84CE3 /* SearchBar.swift */,
+			);
+			name = Widgets;
+			sourceTree = "<group>";
+		};
+		7EECFC471C1254A300A84CE3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7EECFC4A1C12675200A84CE3 /* UIView.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		A7565608A677C65B90C1328E /* Pods */ = {
@@ -357,16 +379,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EECFC4B1C12675200A84CE3 /* UIView.swift in Sources */,
 				7E333BE91BEEAD4000FD07FF /* EventListTableViewCell.swift in Sources */,
-				7E236FAA1BF6CF7A00470EA5 /* AdminSelectOrganizationTableViewController.swift in Sources */,
-				7E8CF3ED1C10F2DC00E8DA02 /* SettingsViewController.swift in Sources */,
+				7E236FAA1BF6CF7A00470EA5 /* AdminAddOrganizationTableViewController.swift in Sources */,
 				7E333BDE1BEE7C8300FD07FF /* LoginViewController.swift in Sources */,
 				7E333BE51BEE84CC00FD07FF /* EventListViewController.swift in Sources */,
+				7EADB39D1C13831600BBF469 /* SettingsTableViewController.swift in Sources */,
+				7EECFC491C1254C600A84CE3 /* SearchBar.swift in Sources */,
 				7EDD63881C0ED456003B6476 /* MapViewController.swift in Sources */,
 				7E846D671BEDA29E00BF9B0D /* AppDelegate.swift in Sources */,
 				7EAC2CD71C10BA1500A983AF /* MenuOverlayViewController.swift in Sources */,
 				490573561BF28A000046DB61 /* EventViewController.swift in Sources */,
-				7EFB399F1BF6F5D3006BC576 /* AdminSelectOrganizationTableViewCell.swift in Sources */,
+				7EFB399F1BF6F5D3006BC576 /* AdminAddOrganizationTableViewCell.swift in Sources */,
 				7E333BE71BEEABE800FD07FF /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
