@@ -6,38 +6,38 @@
 //  Copyright © 2015 Mobi. All rights reserved.
 //
 
-import Parse
+import Foundation
+import Firebase
+import CoreLocation
 
-class Event : PFObject, PFSubclassing {
+class Event : NSObject {
     
-    override class func initialize() {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0;
-        }
-        dispatch_once(&Static.onceToken) {
-            self.registerSubclass()
-        }
+    var id: String?
+    var title: String!
+    var imageUrl: String!
+    var desc: String!
+    var location: [String:AnyObject]!
+    var locationCoords: CLLocationCoordinate2D!
+    var startsAt: NSDate!
+    
+    init(snapshot: FDataSnapshot) {
+        self.id = snapshot.key
+        self.title = snapshot.value["title"] as? String
+        self.imageUrl = snapshot.value["imgUrl"] as? String
+        self.desc = snapshot.value["description"] as? String
+        self.locationCoords = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        self.startsAt = NSDate()
+        self.location = ["test": "test"]
     }
-    
-    static func parseClassName() -> String {
-        return "Event"
-    }
-    
-    @NSManaged var title: String!
-    @NSManaged var imageUrl: String!
-    @NSManaged var desc: String!
-    @NSManaged var location: [String:AnyObject]!
-    @NSManaged var locationGPS: PFGeoPoint!
-    @NSManaged var startsAt: NSDate!
     
     func getListingAddress() -> String {
-        if let street = location["street"] {
-            if let city = location["city"] {
-                if let state = location["state"] {
-                    return "\(street) \(city), \(state)"
-                }
-            }
-        }
+//        if let street = location["address"] {
+//            if let city = location["city"] {
+//                if let state = location["state"] {
+//                    return "\(street) \(city), \(state)"
+//                }
+//            }
+//        }
         
         return "No address available"
     }
@@ -46,10 +46,5 @@ class Event : PFObject, PFSubclassing {
         let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "EEEE MMMM d, yyyy @ H:mm a"
         return dateFormat.stringFromDate(startsAt)
-        
-    }
-    
-    func getLocationGPS() -> CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: locationGPS.latitude, longitude: locationGPS.longitude)
     }
 }

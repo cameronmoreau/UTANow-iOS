@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ParseFacebookUtilsV4
 
 class SettingsTableViewController: UITableViewController {
 
@@ -24,7 +23,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "logoutSegue" {
-            PFUser.logOutInBackground()
+            LoginHelper.logOut()
             
             //TODO: Clear saved userdefaults for that login
         }

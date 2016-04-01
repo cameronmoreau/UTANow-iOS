@@ -7,41 +7,29 @@
 //
 
 import UIKit
-import Parse
-import Bolts
-import ParseFacebookUtilsV4
+import Firebase
 import FBSDKCoreKit
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        //Parse subclasses
-        Event.registerSubclass()
-        
-        //Parse Requirements
-        Parse.enableLocalDatastore()
-        Parse.setApplicationId("F9BqVIRG5hs1PPUktFM5FGrQ4gnJgGyHZKwTSjiY",
-            clientKey: "156EyoM3Xc1l0LcsMTk0TII5tvbAs1WDEGXq1kvy")
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
-        //Parse + Facebook
-        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-        
         //Check if logged in
-        if FBSDKAccessToken.currentAccessToken() != nil && PFUser.currentUser() != nil {
-            if PFUser.currentUser()!.isAuthenticated() {
-                let sb = UIStoryboard(name: "Main", bundle: nil)
-                self.window?.rootViewController = sb.instantiateViewControllerWithIdentifier("HomeNavigationController")
-            }
+        print(LoginHelper.isLoggedIn())
+        
+        if FBSDKAccessToken.currentAccessToken() != nil && LoginHelper.isLoggedIn() {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            self.window?.rootViewController = sb.instantiateViewControllerWithIdentifier("HomeNavigationController")
         }
 
         
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            application, didFinishLaunchingWithOptions: launchOptions
+        )
     }
     
     //Facebook login callback

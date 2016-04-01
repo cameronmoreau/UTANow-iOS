@@ -1,13 +1,19 @@
 PODS:
+  - Firebase (2.5.0)
   - Kingfisher (1.8.0)
   - Mapbox-iOS-SDK (2.1.2)
+  - PKHUD (3.0.0)
 
 DEPENDENCIES:
+  - Firebase (~> 2.5.0)
   - Kingfisher (~> 1.7)
   - Mapbox-iOS-SDK (~> 2.1.2)
+  - PKHUD (~> 3.0.0)
 
 SPEC CHECKSUMS:
+  Firebase: 744617c0733b45198f9486ebd5cac64ec2d10d79
   Kingfisher: 4d40a6d8a0030b575be66593cae3aea587971a67
-  Mapbox-iOS-SDK: f8a8fd3ccf918196d27a52ab1694414be20f2210
+  Mapbox-iOS-SDK: 19aa6ad9235ad79a46f507cb831ae216d6ea373e
+  PKHUD: e1648a176717bcdf480ec4b91ff1f023f8abb8c4
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

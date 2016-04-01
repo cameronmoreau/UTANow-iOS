@@ -11,6 +11,8 @@ import FBSDKCoreKit
 import Parse
 import ParseFacebookUtilsV4
 
+import Firebase
+
 class EventListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     @IBAction func openMenu(sender: AnyObject) {
@@ -33,7 +35,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     let kFilterButtonHeight: CGFloat = 55
     
-    var events: [Event] = []
+    var events = [Event]()
     
     @IBAction func tempPublishLogin(sender: UIBarButtonItem) {
         let permissions = ["manage_pages"]
@@ -48,10 +50,6 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var tabBtn1: UIButton!
-    @IBOutlet weak var tabBtn2: UIButton!
-    @IBOutlet weak var tabBtn3: UIButton!
     
     var searchBar: UIView!
     var searchButton: UIButton!
@@ -74,6 +72,11 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         //TODO: pretty-up the navbar title
         //navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Woah", size: 35)!]
         
+        let nav = self.navigationController!.navigationBar
+        nav.barTintColor = UIColor.primaryColor()
+        nav.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        nav.translucent = false
+        
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -82,6 +85,10 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         
         //Query for parse events
         refresh(nil)
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     override func viewDidLayoutSubviews() {
@@ -99,46 +106,16 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
     
     //MARK: - Pull to refresh
     func refresh(sender: AnyObject?) {
-        let query = PFQuery(className: "Event")
-        query.findObjectsInBackgroundWithBlock({
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                self.events = objects as! [Event]
+        let ref = Firebase(url:"https://uta-now.firebaseio.com/events")
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            for child in snapshot.children {
+                let snap = snapshot.childSnapshotForPath(child.key)
+                let event = Event(snapshot: snap)
+                self.events.append(event)
                 self.tableView.reloadData()
             }
-            
-            if self.refreshControl.refreshing {
-                self.refreshControl.endRefreshing()
-            }
         })
-    }
-    
-    //MARK: - IBActions
-    
-    @IBAction func tabButtonTapped(sender: UIButton) {
-        sender.tintColor = UIColor(red: 245/255.0, green: 128/255.0, blue: 37/255.0, alpha: 1.0)
         
-        if sender == tabBtn1 {
-            tabBtn2.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
-            tabBtn3.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
-            
-            //TODO: implement lightning tab button action
-        }
-        
-        if sender == tabBtn2 {
-            tabBtn1.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
-            tabBtn3.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
-            
-            //TODO: implement refresh tab button action
-        }
-        
-        if sender == tabBtn3 {
-            tabBtn1.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
-            tabBtn2.tintColor = UIColor(red: 91/255.0, green: 92/255.0, blue: 89/255.0, alpha: 1.0)
-            
-            //TODO: implement thumbs up tab button action
-        }
     }
     
     //MARK: - Search bar
@@ -507,7 +484,7 @@ class EventListViewController: UIViewController, UITableViewDataSource, UITableV
         else if segue.identifier == "mapSegue" {
             let mapVC = (segue.destinationViewController as! UINavigationController).topViewController as! MapViewController
             let selectedEvent = events[sender!.tag]
-            mapVC.markerPoint = selectedEvent.getLocationGPS()
+            //mapVC.markerPoint = selectedEvent.getLocationGPS()
             mapVC.markerTitle = selectedEvent.title
         }
     }
